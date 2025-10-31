@@ -30,7 +30,7 @@ html, body {
 
 .hub-center {
     position: absolute;
-    bottom: 50%;
+    bottom: 40%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -67,7 +67,7 @@ body.animation-triggered .hub-center {
 
 /* Agrandissement de l'image */
 body.animation-triggered #center-image {
-    transform: translate(-400px, 20px) scale(1.8);
+    transform: translate(-400px, -10px) scale(1.8);
     transition: transform 1s ease-in-out;
 }
 /* ===== FIN ÉTAT FINAL DE L'ÉVENTAIL ===== */
@@ -134,3 +134,17 @@ body.animation-triggered #cacao_noir {
     z-index: 5;
     margin-top: 100vh;
 }
+
+#navbar-img {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+    transition: opacity 2s;
+    top: 90%;
+}
+
+#navbar-img.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
