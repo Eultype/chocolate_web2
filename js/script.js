@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Seuils pour déclencher différentes animations/effets
     const scrollThresholdSVG = 0;
-    const scrollThresholdNavbar = window.innerHeight * 0.95;
+    const scrollThresholdNavbar = 10; // ajuste cette valeur selon ton besoin
 
     // Effet Parallax
     const parallaxItems = document.querySelectorAll('[data-parallax-speed]');
@@ -50,7 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', closeMenu);
     });
 
-    // Gestions scrol & Parallax
+    // Par défaut, retire la classe visible à la navbar-img
+    const navbarImg = document.getElementById('navbar-img');
+    if (navbarImg) {
+        navbarImg.classList.remove('visible');
+        navbarImg.style.display = 'block'; // Toujours affichée pour la transition d'opacité
+    }
+
+    // Gestions scroll & Parallax
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
 
@@ -66,6 +73,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     separator.style.opacity = 1;
                 }, 1000);
+            }
+        }
+
+        // Affichage de la barre flottante navbar-img avec effet fade in/out via une classe
+        if (navbarImg) {
+            if (scrollY > scrollThresholdNavbar) {
+                navbarImg.classList.add('visible');
+            } else {
+                navbarImg.classList.remove('visible');
             }
         }
 
