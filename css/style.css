@@ -166,3 +166,10 @@ body.animation-triggered #cacao_noir {
 }
 
 /* ===== FIN NAVBAR FLOTTANTE ===== */
+
+/* Carrousel */
+#carousel {
+    display: flex;
+    scroll-snap-type: x mandatory;
+    overflow-x: hidden;
+}
