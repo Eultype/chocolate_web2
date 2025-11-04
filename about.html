@@ -26,7 +26,7 @@
             <a href="#" class="block text-[#f7efe6] hover:text-[#f9bf29] transition duration-300">Accueil</a>
             <a href="#recipes-section" class="block text-[#f7efe6] hover:text-[#f9bf29] transition duration-300">Nos Recettes</a>
             <a href="#" class="block text-[#f7efe6] hover:text-[#f9bf29] transition duration-300">Boutique</a>
-            <a href="about.html" class="block text-[#f7efe6] hover:text-[#f9bf29] transition duration-300">Histoires</a>
+            <a href="#" class="block text-[#f7efe6] hover:text-[#f9bf29] transition duration-300">Histoires</a>
             <a href="#" class="block text-[#f7efe6] hover:text-[#f9bf29] transition duration-300">Contact</a>
         </nav>
 
@@ -120,60 +120,88 @@
     </div>
 </nav>
 
-<div id="initial-container">
-    <svg viewBox="0 0 1000 600" preserveAspectRatio="xMidYMax meet">
-        <g transform="translate(500,600)">
-            <path id="slice-1" d="M0,0 L-1800,0 A1800,1800 0 0,1 -1456,-1058 Z" fill="#FAF3E0"></path>
-            <path id="slice-2" d="M0,0 L-1456,-1058 A1800,1800 0 0,1 -556,-1712 Z" fill="#b47b52"></path>
-            <path id="slice-3" d="M0,0 L-556,-1712 A1800,1800 0 0,1 556,-1712 Z" fill="#f7efe6"></path>
-            <path id="slice-4" d="M0,0 L556,-1712 A1800,1800 0 0,1 1456,-1058 Z" fill="#d4a15a"></path>
-            <path id="slice-5" d="M0,0 L1456,-1058 A1800,1800 0 0,1 1800,0 Z" fill="#2d1b14"></path>
-            <g id="separator-lines">
-                <line x1="0" y1="0" x2="-1456" y2="-1058" stroke="white" stroke-width="5"></line>
-                <line x1="0" y1="0" x2="-556" y2="-1712" stroke="white" stroke-width="5"></line>
-                <line x1="0" y1="0" x2="556" y2="-1712" stroke="white" stroke-width="5"></line>
-                <line x1="0" y1="0" x2="1456" y2="-1058" stroke="white" stroke-width="5"></line>
-            </g>
-        </g>
-        <image id="center-image" href="images/ChocolatHub_title2.png" x="350" y="50" width="300" height="280" />
-        <image id="tablette-image" href="images/tablette_chocolat.png" x="350" y="390" width="300" height="300" />
-        <image id="tablette_croc-image" href="images/tablette_chocolat_croc.png" x="350" y="390" width="300" height="300" transform="rotate(180 500 100)" />
-        <image id="cacao_lait" href="images/cacao_lait.png" x="10" y="250" width="300" height="180" transform="rotate(-38 280 110)" />
-        <image id="cacao_blanc" href="images/cacao_blanc.png" x="-280" y="120" width="300" height="180" transform="rotate(-65 280 100)" />
-        <image id="cacao_blond" href="images/cacao_blond.png" x="600" y="-20" width="300" height="180" transform="rotate(38 300 100)" />
-        <image id="cacao_noir" href="images/cacao_noir.png" x="730" y="-260" width="300" height="180" transform="rotate(65 300 100)" />
-    </svg>
-    <div class="hub-center">
-        <button class="bg-[#f9bf29] px-6 py-3 rounded-md font-semibold text-[#4d2c16] hover:bg-[#ffcb3b] transition">Explorer</button>
-    </div>
-</div>
+
 
 <section id="recipes-section" class="pt-24 pb-24 bg-[#f7efe6] text-[#4d2c16] min-h-screen">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-12 text-center">Nos Recettes Tendances 👩‍🍳</h2>
+        <h2  class="text-4xl font-bold mb-12 text-center">À propos de nous👩‍🍳</h2>
+        <div class="flex justify-center h-[300px]">
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-gray-100 p-6 rounded-lg shadow-lg" data-parallax-speed="0.95">
-                <h3 class="text-2xl font-semibold mb-3">Truffes au Chocolat Noir intense</h3>
-                <p class="mb-4">Un classique revisité avec notre cacao le plus sombre. Parfaites pour les amateurs d'amertume.</p>
-                <a href="#" class="text-[#f9bf29] font-medium hover:text-[#ffcb3b] transition">Découvrir la recette →</a>
-            </div>
-
-            <div class="bg-gray-100 p-6 rounded-lg shadow-lg" data-parallax-speed="1.05">
-                <h3 class="text-2xl font-semibold mb-3">Cookies "Blond" et Noix de Macadamia</h3>
-                <p class="mb-4">Le goût caramélisé unique de notre chocolat blond, combiné au croquant des noix.</p>
-                <a href="#" class="text-[#f9bf29] font-medium hover:text-[#ffcb3b] transition">Découvrir la recette →</a>
-            </div>
-
-            <div class="bg-gray-100 p-6 rounded-lg shadow-lg" data-parallax-speed="0.97">
-                <h3 class="text-2xl font-semibold mb-3">Mousse Chocolat au Lait Aérien</h3>
-                <p class="mb-4">Une texture légère et mousseuse qui fond en bouche, mettant en valeur la douceur de notre cacao au lait.</p>
-                <a href="#" class="text-[#f9bf29] font-medium hover:text-[#ffcb3b] transition">Découvrir la recette →</a>
+            <!-- gateau -->
+            <div  id="gateau" class="bg-gray-100 w-[400px] rounded-lg shadow-lg absolute top-[250px]" data-parallax-speed="0.95">
+                <svg id="chocoGateau" class="w-full h-[100px]">
+                    <path 
+                        d="M0,60 
+                        C50,90 100,0 150,60 
+                        C200,90 250,0 300,60 
+                        C350,90 400,0 450,60 
+                        C500,90 550,0 600,60 
+                        C650,90 700,0 750,60 
+                        L800,0 L0,0 Z" 
+                        fill="#4d2c16">
+                    </path>
+                </svg>
+                <div class="wave-container">
+                
+                
+                <div class="flex justify-center mb-4">
+                    <img src="images/ChocolatHub_title2.png" class="w-[300px] "></img>
+                </div>        
             </div>
         </div>
+        
+    </div>
+    <svg id="chocoGateau" class="w-full h-[200px] relative top-[50px] z-9">
+        <path 
+            d="M0,60 
+            C50,90 100,0 150,60 
+            C200,90 250,0 300,60 
+            C350,90 400,0 450,60 
+            C500,90 550,0 600,60 
+            C650,90 700,0 750,60 
+            L800,200 L0,200 Z" 
+            fill="#4d2c16">
+        </path>
+    </svg>
+    <div class="bg-[#4d2c16] w-full h-[600px] absolute z-10">
+
     </div>
 </section>
 
+<style>
+    #gateau{
+        border-radius: 30px 30px 0 0;
+        animation: bateau 8s ease-in-out infinite;
+        
+    }
+
+    @keyframes bateau {
+        0%, 100% {
+            transform: translateY(0);
+            rotate: 0deg;
+
+        }
+        20%, 60% {
+            rotate: -2deg;
+
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+
+        40%, 80% {
+            rotate: 2deg;
+        }
+        25%, 75% {
+            transform: translateY(-20px);
+        }
+    }
+    #chocoGateau{
+        border-radius: 30px 30px 0 0;
+        animation: bateau 5s ease-in-out infinite;
+    }
+</style>
 <script src="js/script.js"></script>
 </body>
 </html>
