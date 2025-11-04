@@ -97,3 +97,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Gestion du carrousel
+    const carousel = document.getElementById('carousel');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    if (carousel) {
+        let isScrolling = false;
+        let autoScrollInterval;
+
+        const scrollNext = () => {
+            if (!isScrolling) {
+                isScrolling = true;
+                carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+                setTimeout(() => { isScrolling = false; }, 3000);
+            }
+        };
+
+        const startAutoScroll = () => {
+            autoScrollInterval = setInterval(scrollNext, 3000);
+        };
+
+        const stopAutoScroll = () => {
+            clearInterval(autoScrollInterval);
+        };
+
+        // Démarrer le défilement automatique
+        startAutoScroll();
+
+        // Arrêter/redémarrer le défilement automatique au survol
+        carousel.addEventListener('mouseenter', stopAutoScroll);
+        carousel.addEventListener('mouseleave', startAutoScroll);
+
+        // Gestion des boutons Précédent/Suivant
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                stopAutoScroll();
+                carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+                setTimeout(startAutoScroll, 5000);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                stopAutoScroll();
+                carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+                setTimeout(startAutoScroll, 5000);
+            });
+        }
+
+        // Détection du défilement tactile
+        let startX;
+        carousel.addEventListener('touchstart', (e) => {
+            stopAutoScroll();
+            startX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener('touchmove', (e) => {
+            if (!startX) return;
+            const x = e.touches[0].clientX;
+            const diff = startX - x;
+            carousel.scrollBy({ left: diff, behavior: 'smooth' });
+            startX = x;
+        });
+
+        carousel.addEventListener('touchend', () => {
+            setTimeout(startAutoScroll, 5000);
+        });
+    }
+});
