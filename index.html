@@ -406,258 +406,73 @@
           </div>
         </div>
         <hr class="border-t-2 border-[#b47b52] w-full mb-12 ml-0" />
-        <!-- Carrousel -->
+        <!-- Carousel Container -->
         <div
-          class="relative w-full overflow-hidden rounded-none shadow-none mb-12"
+            class="relative h-[500px] flex items-center justify-center"
         >
-          <div
-            class="flex transition-transform duration-500 ease-in-out"
-            id="carousel"
-          >
-            <!-- Exemple de slide (à dupliquer pour chaque dessert) -->
             <div
-              class="flex-shrink-0 w-full md:w-1/3 p-4 cursor-pointer group"
-              onclick="window.location.href=''"
+                class="carousel-container relative w-full h-full flex items-center justify-center"
             >
-              <div class="relative">
-                <img
-                  src="images/fondantAuChocolat.jpg"
-                  alt="Fondant au chocolat"
-                  class="w-full h-100 object-cover rounded-lg"
-                />
+                <!-- Carousel Items -->
                 <div
-                  class="absolute inset-8 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-75 rounded-lg"
+                    id="carousel-track"
+                    class="relative w-full h-full flex items-center justify-center"
                 >
-                  <span class="text-white text-xl font-semibold"
-                    >Fondant au chocolat</span
-                  >
+                    <!-- Items will be dynamically inserted here -->
                 </div>
-              </div>
             </div>
-            <!-- Slide 2 -->
-            <div
-              class="flex-shrink-0 w-full md:w-1/3 p-4 cursor-pointer group"
-              onclick="window.location.href=''"
-            >
-              <div class="relative">
-                <img
-                  src="images/mousseAuChocolat.jpg"
-                  alt="Mouse au chocolat"
-                  class="w-full h-100 object-cover rounded-lg"
-                />
-                <div
-                  class="absolute inset-8 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-75 rounded-lg"
-                >
-                  <span class="text-white text-xl font-semibold"
-                    >Mouse au chocolat</span
-                  >
-                </div>
-              </div>
-            </div>
-            <!-- Slide 3 -->
-            <div
-              class="flex-shrink-0 w-full md:w-1/3 p-4 cursor-pointer group"
-              onclick="window.location.href=''"
-            >
-              <div class="relative">
-                <img
-                  src="images/cookiesAuxPepitesDeChocolat.jpg"
-                  alt="Cookies aux pépites de chocolat"
-                  class="w-full h-100 object-cover rounded-lg"
-                />
-                <div
-                  class="absolute inset-8 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-75 rounded-lg"
-                >
-                  <span class="text-white text-xl font-semibold"
-                    >Cookies aux pépites de chocolat</span
-                  >
-                </div>
-              </div>
-            </div>
-            <!-- Slide 4 -->
-            <div
-              class="flex-shrink-0 w-full md:w-1/3 p-4 cursor-pointer group"
-              onclick="window.location.href=''"
-            >
-              <div class="relative">
-                <img
-                  src="images/truffesAuChocolat.jpg"
-                  alt="Truffes au chocolat"
-                  class="w-full h-100 object-cover rounded-lg"
-                />
-                <div
-                  class="absolute inset-8 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-75 rounded-lg"
-                >
-                  <span class="text-white text-xl font-semibold"
-                    >Truffes au chocolat</span
-                  >
-                </div>
-              </div>
-            </div>
-            <!-- Slide 5 -->
-            <div
-              class="flex-shrink-0 w-full md:w-1/3 p-4 cursor-pointer group"
-              onclick="window.location.href=''"
-            >
-              <div class="relative">
-                <img
-                  src="images/coulantAuChocolat.jpg"
-                  alt="Coulant au chocolat"
-                  class="w-full h-100 object-cover rounded-lg"
-                />
-                <div
-                  class="absolute inset-8 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-75 rounded-lg"
-                >
-                  <span class="text-white text-xl font-semibold"
-                    >Coulant au chocolat</span
-                  >
-                </div>
-              </div>
-            </div>
-            <!-- Slide 6 -->
-            <div
-              class="flex-shrink-0 w-full md:w-1/3 p-4 cursor-pointer group"
-              onclick="window.location.href=''"
-            >
-              <div class="relative">
-                <img
-                  src="images/croissantAuChocolat.jpg"
-                  alt="Croissant au chocolat"
-                  class="w-full h-100 object-cover rounded-lg"
-                />
-                <div
-                  class="absolute inset-8 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-75 rounded-lg"
-                >
-                  <span class="text-white text-xl font-semibold"
-                    >Croissant au chocolat</span
-                  >
-                </div>
-              </div>
-            </div>
-            <!-- Slide 7 -->
-            <div
-              class="flex-shrink-0 w-full md:w-1/3 p-4 cursor-pointer group"
-              onclick="window.location.href=''"
-            >
-              <div class="relative">
-                <img
-                  src="images/tarteAuChocolat.jpg"
-                  alt="Tarte au chocolat"
-                  class="w-full h-100 object-cover rounded-lg"
-                />
-                <div
-                  class="absolute inset-8 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-75 rounded-lg"
-                >
-                  <span class="text-white text-xl font-semibold"
-                    >Tarte au chocolat</span
-                  >
-                </div>
-              </div>
-            </div>
-            <!-- Slide 8 -->
-            <div
-              class="flex-shrink-0 w-full md:w-1/3 p-4 cursor-pointer group"
-              onclick="window.location.href=''"
-            >
-              <div class="relative">
-                <img
-                  src="images/souffleAuChocolat.jpg"
-                  alt="Soufflé au chocolat"
-                  class="w-full h-100 object-cover rounded-lg"
-                />
-                <div
-                  class="absolute inset-8 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-75 rounded-lg"
-                >
-                  <span class="text-white text-xl font-semibold"
-                    >Soufflé au chocolat</span
-                  >
-                </div>
-              </div>
-            </div>
-            <!-- Slide 9 -->
-            <div
-              class="flex-shrink-0 w-full md:w-1/3 p-4 cursor-pointer group"
-              onclick="window.location.href=''"
-            >
-              <div class="relative">
-                <img
-                  src="images/fraisesAuChocolat.jpg"
-                  alt="Fraises au chocolat"
-                  class="w-full h-100 object-cover rounded-lg"
-                />
-                <div
-                  class="absolute inset-8 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-75 rounded-lg"
-                >
-                  <span class="text-white text-xl font-semibold"
-                    >Fraises au chocolat</span
-                  >
-                </div>
-              </div>
-            </div>
-            <!-- Slide 10 -->
-            <div
-              class="flex-shrink-0 w-full md:w-1/3 p-4 cursor-pointer group"
-              onclick="window.location.href=''"
-            >
-              <div class="relative">
-                <img
-                  src="images/brownieAuChocolat.jpg"
-                  alt="Brownie au chocolat"
-                  class="w-full h-100 object-cover rounded-lg"
-                />
-                <div
-                  class="absolute inset-8 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-75 rounded-lg"
-                >
-                  <span class="text-white text-xl font-semibold"
-                    >Brownie au chocolat</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Boutons de navigation -->
-          <button
-            id="prev-btn"
-            class="absolute top-1/2 left-1 transform -translate-y-1/2 p-2"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-[#4d2c16]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+            <!-- Navigation Buttons -->
+            <button
+                id="prev-btn"
+                class="nav-button absolute left-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full shadow-lg flex items-center justify-center"
+                aria-label="Previous slide"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="3"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-          <button
-            id="next-btn"
-            class="absolute top-1/2 right-1 transform -translate-y-1/2 p-2"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-[#4d2c16]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    style="color: hsl(25 55% 25%)"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"
+                    />
+                </svg>
+            </button>
+
+            <button
+                id="next-btn"
+                class="nav-button absolute right-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full shadow-lg flex items-center justify-center"
+                aria-label="Next slide"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="3"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    style="color: hsl(25 55% 25%)"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                    />
+                </svg>
+            </button>
         </div>
-      </div>
-    </section>
+
+        <!-- Indicator Dots -->
+        <div id="dots-container" class="flex justify-center gap-2 mt-8">
+            <!-- Dots will be dynamically inserted here -->
+        </div>
+    </div>
     <!-- TESTIMONIALS SECTION (Sola) -->
            <section
                class="bg-[#f7efe6] text-[#4d2c16] w-screen min-h-screen relative z-5 px-5 md:px-20"
