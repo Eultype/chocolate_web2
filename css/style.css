@@ -6,7 +6,6 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 200vh;
     background-color: #f7efe6;
     overflow-x: hidden;
 }
@@ -67,7 +66,7 @@ h6 {
 /* Ligne séparatrices */
 #separator-lines {
     opacity: 1;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.8s ease-in-out 0.8s;
 }
 /* ===== FIN ANIMATION DE L'ÉVENTAIL "INVERSÉ" ===== */
 
@@ -87,10 +86,14 @@ body.animation-triggered #slice-5 {
 }
 
 /* Disparition des lignes + bouton */
-body.animation-triggered #separator-lines,
 body.animation-triggered .hub-center {
     opacity: 0;
     transition-duration: 0s;
+}
+
+body.animation-triggered #separator-lines {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out 0s;
 }
 
 /* Agrandissement de l'image */
