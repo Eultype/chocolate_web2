@@ -83,6 +83,38 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  const sections = Array.from(document.querySelectorAll('section[id]'));
+  const navButtons = Array.from(document.querySelectorAll('#navbar-img button[data-section]'));
+
+  function activateSection(sectionId) {
+    navButtons.forEach(btn => {
+      if (btn.dataset.section === sectionId) {
+        btn.classList.add('bg-[#4d2c16]', 'text-white');
+      } else {
+        btn.classList.remove('bg-[#4d2c16]', 'text-white');
+      }
+    });
+  }
+
+  function onScroll() {
+    let activeSection = sections[0].id;
+
+    for (const section of sections) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 100 && rect.bottom >= 100) {
+        activeSection = section.id;
+        break;
+      }
+    }
+    activateSection(activeSection);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
   // Gestion du carrousel
   // Desserts data
