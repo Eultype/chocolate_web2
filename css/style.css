@@ -1,5 +1,6 @@
 /* Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* ===== CSS GÉNÉRAL ===== */
 html,
@@ -8,6 +9,7 @@ body {
     padding: 0;
     background-color: #f7efe6;
     overflow-x: hidden;
+    font-family: "Montserrat", sans-serif;
 }
 
 h1,
@@ -301,4 +303,41 @@ body.animation-triggered #cacao_noir {
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+.ingredient-name {
+    list-style: square;
+}
+
+/* Taille uniforme pour les deux colonnes de la section commentaires */
+.comment-section-flex {
+    /* Pour assurer la même hauteur entre les colonnes */
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 768px) {
+    .comment-section-flex {
+        flex-direction: row;
+        gap: 1.5rem;
+        /* Hauteur fixe selon besoin (exemple : 420px) */
+        min-height: 420px;
+        height: 420px;
+        align-items: stretch;
+    }
+    .comment-col {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+    }
+}
+
+.comment-list-scrollable {
+    /* Pour que la liste ne prenne pas plus que la hauteur dispo */
+    height: 100%;
+    overflow-y: auto;
+    min-height: 200px;
+    /* Optionnel : ajustez selon vos besoins d’UI */
+    max-height: 340px;
 }
