@@ -377,3 +377,11 @@ document.addEventListener("DOMContentLoaded", () => {
   renderDots();
   startAutoPlay(); // Start auto-play on load
 });
+
+  //btn category
+  const categoryBtn = document.getElementById('category-btn');
+  if (categoryBtn) {
+    categoryBtn.addEventListener('click', () => {
+      window.location.href = 'category.html'; // Redirige vers la page category.html
+    });
+  }
