@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chocolat Hub - Toutes les Recettes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/tablette_chocolat1.ico" type="image/png" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* styles modal */
+        .modal-enter { opacity: 0; transform: scale(0.95); }
+        .modal-enter-active { opacity: 1; transform: scale(1); transition: all 0.3s ease-out; }
+        .modal-exit { opacity: 1; transform: scale(1); }
+        .modal-exit-active { opacity: 0; transform: scale(0.95); transition: all 0.2s ease-in; }
+    
+        body {
+            background-color: #f7efe6;
+            color: #4d2c16;
+        }
+    </style>
+  </head>
+  <body class="overflow-x-hidden min-h-screen relative">
+
+    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40">
+      <div class="bg-[rgba(255,255,255,0.8)] backdrop-blur-md border border-[rgba(255,255,255,0.2)] rounded-2xl px-6 py-3 shadow-2xl">
+        <ul class="flex items-center gap-8 text-xs font-bold text-[#4d2c16]">
+          <li>
+            <a href="index.html" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-[#fbe7cd] transition-colors">
+              <i data-lucide="arrow-left" class="w-4 h-4"></i>
+              <span>Retour</span>
+            </a>
+          </li>
+          <li>
+            <button class="bg-[#fbe7cd] flex items-center gap-2 px-3 py-2 rounded-xl transition-colors cursor-default">
+              <i data-lucide="chef-hat" class="w-4 h-4"></i>
+              <span>Catalogue</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="pt-20 pb-10 px-6 text-center">
+        <h1 class="text-5xl md:text-7xl font-medium text-[#7a3c18] mb-4">L'Atelier Recettes</h1>
+        <p class="text-xl opacity-80 max-w-2xl mx-auto">
+            Explorez notre collection complète. Filtrez par catégorie et laissez-vous tenter.
+        </p>
+    </header>
+
+    <section class="px-6 mb-10">
+        <div class="flex flex-wrap justify-center gap-4" id="filter-container">
+            <button onclick="filterRecipes('all')" class="filter-btn active bg-[#4d2c16] text-[#f7efe6] px-6 py-2 rounded-full font-medium transition hover:shadow-lg ring-2 ring-offset-2 ring-[#4d2c16]">Tout</button>
+            <button onclick="filterRecipes('gateau')" class="filter-btn bg-white text-[#4d2c16] px-6 py-2 rounded-full font-medium transition hover:bg-[#fbe7cd] hover:shadow-lg">Gâteaux</button>
+            <button onclick="filterRecipes('mousse')" class="filter-btn bg-white text-[#4d2c16] px-6 py-2 rounded-full font-medium transition hover:bg-[#fbe7cd] hover:shadow-lg">Mousses</button>
+            <button onclick="filterRecipes('boisson')" class="filter-btn bg-white text-[#4d2c16] px-6 py-2 rounded-full font-medium transition hover:bg-[#fbe7cd] hover:shadow-lg">Boissons</button>
+            <button onclick="filterRecipes('glace')" class="filter-btn bg-white text-[#4d2c16] px-6 py-2 rounded-full font-medium transition hover:bg-[#fbe7cd] hover:shadow-lg">Glacé</button>
+        </div>
+    </section>
+
+    <section class="px-6 md:px-20 pb-32">
+        <div id="recipes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+    </section>
+
+    <div id="recipe-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-[#2d1b14]/60 backdrop-blur-sm" onclick="closeModal()"></div>
+        
+        <div class="bg-[#f7efe6] w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl relative z-10 flex flex-col md:flex-row">
+            <button onclick="closeModal()" class="absolute top-4 right-4 bg-white/50 p-2 rounded-full hover:bg-white transition z-20">
+                <i data-lucide="x" class="w-6 h-6 text-[#4d2c16]"></i>
+            </button>
+            
+            <div class="w-full md:w-1/2 h-64 md:h-auto relative">
+                <img id="modal-img" src="" alt="Recipe" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            
+            <div class="w-full md:w-1/2 p-8 md:p-12 text-[#4d2c16]">
+                <span id="modal-tag" class="text-xs font-bold uppercase tracking-wider text-[#d4a15a] mb-2 block"></span>
+                <h2 id="modal-title" class="text-3xl md:text-4xl font-serif font-bold mb-4 text-[#7a3c18]"></h2>
+                
+                <div class="flex gap-6 text-sm mb-6 border-y border-[#4d2c16]/10 py-4">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4"></i>
+                        <span id="modal-time"></span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="users" class="w-4 h-4"></i>
+                        <span id="modal-servings"></span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="bar-chart" class="w-4 h-4"></i>
+                        <span id="modal-level"></span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+                        <i data-lucide="shopping-basket" class="w-4 h-4"></i> Ingrédients
+                    </h3>
+                    <ul id="modal-ingredients" class="list-disc list-inside space-y-1 text-sm opacity-90 marker:text-[#d4a15a]">
+                        </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+                        <i data-lucide="chef-hat" class="w-4 h-4"></i> Préparation
+                    </h3>
+                    <p id="modal-desc" class="text-sm leading-relaxed opacity-90 whitespace-pre-line">
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // base de données des recettes
+        const recipesData = [
+            {
+                id: 1,
+                category: "mousse",
+                title: "Mousse Intense",
+                image: "images/fondantAuChocolat.jpg",
+                time: "20 min",
+                level: "Facile",
+                servings: "4 pers",
+                ingredients: ["200g Chocolat Noir 70%", "6 Oeufs", "1 pincée de sel", "30g Sucre"],
+                desc: "Faites fondre le chocolat au bain-marie.\nSéparez les blancs des jaunes.\nMontez les blancs en neige ferme.\nMélangez les jaunes au chocolat tiédi, puis incorporez délicatement les blancs.\nRéservez 4h au frais."
+            },
+            {
+                id: 2,
+                category: "gateau",
+                title: "Tarte Cacao & Sel",
+                image: "images/Tarte Cacao & Sel.webp",
+                time: "1h 15",
+                level: "Moyen",
+                servings: "6 pers",
+                ingredients: ["Pâte sablée", "200ml Crème liquide", "200g Chocolat Noir", "50g Beurre", "Fleur de sel"],
+                desc: "Cuire la pâte sablée à blanc (180°C, 20min).\nChauffer la crème, verser sur le chocolat haché (ganache).\nAjouter le beurre et lisser.\nVerser sur le fond de tarte.\nSaupoudrer de fleur de sel et laisser figer."
+            },
+            {
+                id: 3,
+                category: "boisson",
+                title: "Choco Chaud Épicé",
+                image: "images/Choco Chaud Épicé.webp",
+                time: "10 min",
+                level: "Très Facile",
+                servings: "2 tasses",
+                ingredients: ["500ml Lait entier", "100g Chocolat Noir", "1 Bâton cannelle", "1 pincée Piment"],
+                desc: "Chauffer le lait avec la cannelle.\nRetirer du feu, ajouter le chocolat et fouetter.\nAjouter le piment.\nServir bien chaud avec de la chantilly."
+            },
+            {
+                id: 4,
+                category: "gateau",
+                title: "Fondant Coeur Coulant",
+                image: "images/Fondant Coeur Coulant.webp",
+                time: "25 min",
+                level: "Moyen",
+                servings: "4 pers",
+                ingredients: ["100g Chocolat", "100g Beurre", "3 Oeufs", "80g Sucre", "50g Farine"],
+                desc: "Fondre beurre et chocolat.\nFouetter oeufs et sucre, ajouter le mélange chocolat.\nAjouter farine.\nVerser dans des moules beurrés.\nCuire 10 min à 200°C (le centre doit rester mou)."
+            },
+            {
+                id: 5,
+                category: "glace",
+                title: "Sorbet Cacao",
+                image: "images/Sorbet Cacao.webp",
+                time: "40 min + froid",
+                level: "Difficile",
+                servings: "1 litre",
+                ingredients: ["500ml Eau", "200g Sucre", "80g Cacao en poudre", "50g Chocolat 85%"],
+                desc: "Faire un sirop avec l'eau et le sucre.\nAjouter le cacao et le chocolat, mixer.\nLaisser refroidir complètement.\nTurbiner en sorbetière."
+            },
+            {
+                id: 6,
+                category: "boisson",
+                title: "Smoothie Banane-Choco",
+                image: "images/Smoothie Banane-Choco.jpg",
+                time: "5 min",
+                level: "Très Facile",
+                servings: "1 verre",
+                ingredients: ["1 Banane", "200ml Lait amande", "1 c.à.s Cacao non sucré", "Miel"],
+                desc: "Mettre tous les ingrédients dans un blender.\nMixer jusqu'à obtenir une texture lisse.\nAjouter des glaçons si désiré."
+            }
+        ];
+
+        // 2. RENDER GRID 
+        const grid = document.getElementById('recipes-grid');
+
+        function renderRecipes(filter = 'all') {
+            grid.innerHTML = ''; // Clear current
+            
+            const filtered = filter === 'all' 
+                ? recipesData 
+                : recipesData.filter(r => r.category === filter);
+
+            filtered.forEach(recipe => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer border border-[#4d2c16]/5";
+                card.onclick = () => openModal(recipe.id);
+
+                card.innerHTML = `
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="${recipe.image}" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="${recipe.title}">
+                        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur text-[#4d2c16] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            ${recipe.category}
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-[#7a3c18]">${recipe.title}</h3>
+                            <span class="flex items-center text-xs font-medium text-[#d4a15a]">
+                                <i data-lucide="clock" class="w-3 h-3 mr-1"></i> ${recipe.time}
+                            </span>
+                        </div>
+                        <p class="text-sm text-gray-500 line-clamp-2 mb-4">Cliquez pour voir les ingrédients et la préparation complète.</p>
+                        <button class="w-full py-2 rounded-lg bg-[#fbe7cd] text-[#4d2c16] font-bold text-sm hover:bg-[#f9bf29] transition-colors flex justify-center items-center gap-2">
+                            Voir la recette <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        // 3. FILTER LOGIC
+        function filterRecipes(category) {
+            // Update buttons styling
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-[#4d2c16]', 'text-[#f7efe6]', 'ring-2', 'ring-offset-2', 'ring-[#4d2c16]');
+                btn.classList.add('bg-white', 'text-[#4d2c16]');
+            });
+            
+            // Highlight active
+            const activeBtn = event.target;
+            activeBtn.classList.remove('bg-white', 'text-[#4d2c16]');
+            activeBtn.classList.add('bg-[#4d2c16]', 'text-[#f7efe6]', 'ring-2', 'ring-offset-2', 'ring-[#4d2c16]');
+
+            renderRecipes(category);
+        }
+
+        // 4. MODAL LOGIC
+        const modal = document.getElementById('recipe-modal');
+        
+        function openModal(id) {
+            const recipe = recipesData.find(r => r.id === id);
+            if(!recipe) return;
+
+            // Fill data
+            document.getElementById('modal-img').src = recipe.image;
+            document.getElementById('modal-tag').textContent = recipe.category;
+            document.getElementById('modal-title').textContent = recipe.title;
+            document.getElementById('modal-time').textContent = recipe.time;
+            document.getElementById('modal-servings').textContent = recipe.servings;
+            document.getElementById('modal-level').textContent = recipe.level;
+            document.getElementById('modal-desc').textContent = recipe.desc;
+
+            // Fill ingredients list
+            const ingList = document.getElementById('modal-ingredients');
+            ingList.innerHTML = recipe.ingredients.map(ing => `<li>${ing}</li>`).join('');
+
+            // Show modal
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Init
+        renderRecipes();
+
+    </script>
+  </body>
+</html>
