@@ -6,11 +6,91 @@
     <title>Chocolat Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="images/tablette_chocolat1.ico" type="image/png">
-</head>
-<body class="overflow-x-hidden  bg-[#0e2926]">
 
+    <!-- Styles additionnels -->
+    <style>
+        /* ==== CHOCO PIECES QUI TOMBENT ==== */
+        .choco-piece{
+            position: fixed;
+            background: linear-gradient(180deg, #4d2c16, #2c1508);
+            border-radius: 3px;
+            pointer-events: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            animation-name: fallChoco;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fallChoco {
+            to {
+                transform: translateY(120vh) rotate(360deg);
+                opacity: 0.2;
+            }
+        }
+
+        /* ==== PARTICULES CACAO (TOP ANIMATION) ==== */
+        .cacao-spark{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            pointer-events: none;
+        }
+
+        .spark{
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, #f9bf29, #e0a326, #4d2c16);
+            opacity: 0.85;
+            animation: floatSpark linear forwards;
+        }
+
+        @keyframes floatSpark{
+            0% { transform: translateY(0) scale(0.7); opacity: 1; }
+            100% { transform: translateY(60px) scale(1.3); opacity: 0; }
+        }
+
+        /* ==== GATEAU ANIMATION EXISTANTE ==== */
+        #gateau{
+            animation: bateau 8s ease-in-out infinite;
+        }
+
+        @keyframes bateau {
+            0%, 100% {
+                transform: translateY(0);
+                rotate: 0deg;
+            }
+            20%, 60% {
+                rotate: -2deg;
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            40%, 80% {
+                rotate: 2deg;
+            }
+            25%, 75% {
+                transform: translateY(-20px);
+            }
+        }
+
+        #chocoGateau{
+            border-radius: 30px 30px 0 0;
+            animation: bateau 5s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden bg-[#f9bf29] relative">
+
+<!-- LAYER des étincelles -->
+<div id="cacaoSparkLayer" class="cacao-spark"></div>
+
+<!-- MENU OVERLAY -->
 <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[1009] opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out"></div>
 
+<!-- MENU SLIDE -->
 <div id="side-menu" class="fixed top-0 right-0 h-full w-full bg-[#4d2c16] shadow-2xl z-[1010] transform translate-x-full transition-transform duration-500 cubic-bezier(0.6, 0, 0.2, 1)">
     <div class="p-6 h-full flex flex-col justify-center items-center relative">
         <button id="close-menu-btn" class="text-[#f7efe6] hover:text-[#f9bf29] transition absolute top-8 right-8 z-20">
@@ -37,53 +117,47 @@
     </div>
 </div>
 
-
+<!-- NAV -->
 <nav class="fixed top-0 left-0 w-full p-4 z-[1000] bg-transparent" id="navbar">
     <div class="flex justify-end items-center px-6 w-full">
         <div class="flex items-center space-x-3">
-
             <button id="login-btn" class="text-[#4d2c16] hover:text-[#f9bf29] transition p-4 rounded-full hover:border-[#f9bf29] bg-white/70 backdrop-blur-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/>
                 </svg>
             </button>
 
             <button id="menu-burger-btn" class="text-[#4d2c16] hover:text-[#f9bf29] transition bg-white/70 backdrop-blur-sm p-4 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
             </button>
         </div>
     </div>
 </nav>
 
-<!-- NAVBAR FLOTANTE -->
+<!-- NAV FLOTANTE BAS -->
 <nav id="navbar-img" aria-label="Navigation Principale"
      class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
     <div class="bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-[rgba(255,255,255,0.2)] rounded-2xl px-6 py-3 shadow-2xl">
         <ul class="flex items-center gap-8 text-xs">
-            <!-- Exemple d'éléments - duplique à volonté -->
+
             <li>
-                <button onclick="document.getElementById('home').scrollIntoView({behavior:'smooth', block:'start'})"
-                        class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[rgba(255,255,255,0.08)] focus:bg-[rgba(255,255,255,0.08)]"
-                        aria-current="page">
-                    <!-- Icône Accueil -->
-                    <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12L12 5l9 7" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 10v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8" />
+                <button onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})"
+                        class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[rgba(255,255,255,0.08)]">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12L12 5l9 7"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 10v8a2 2 0 002 2h10a2 2 0 002-2v-8"/>
                     </svg>
                     <span>Accueil</span>
-                    <!-- Marqueur actif (optionnel, visible si current) -->
-                    <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full bg-white"></span>
                 </button>
             </li>
+
             <li>
-                <button onclick="document.getElementById('recipes-section').scrollIntoView({behavior:'smooth', block:'start'})"
-                        class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[rgba(255,255,255,0.08)] focus:bg-[rgba(255,255,255,0.08)]">
-                    <!-- Icône Recettes -->
-                    <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 19.5V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v12.5"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 19.5A2.5 2.5 0 0 0 6.5 22H19"/>
+                <button onclick="document.getElementById('recipes-section').scrollIntoView({behavior:'smooth'})"
+                        class="relative flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-[rgba(255,255,255,0.08)]">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor">
+                        <path d="M4 19.5V7a2 2 0 012-2h11a2 2 0 012 2v12.5"/>
                         <line x1="8" y1="6.5" x2="8" y2="19"/>
                         <line x1="12" y1="10" x2="16" y2="10"/>
                         <line x1="12" y1="14" x2="16" y2="14"/>
@@ -91,42 +165,42 @@
                     <span>Recettes</span>
                 </button>
             </li>
+
             <li>
-                <button onclick="document.getElementById('category-section').scrollIntoView({behavior:'smooth', block:'start'})"
-                        class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[rgba(255,255,255,0.08)] focus:bg-[rgba(255,255,255,0.08)]">
-                    <!-- Icône Catégories -->
-                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="7" height="7" rx="1" />
-                        <rect x="14" y="3" width="7" height="7" rx="1" />
-                        <rect x="14" y="14" width="7" height="7" rx="1" />
-                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                <button onclick="document.getElementById('category-section').scrollIntoView({behavior:'smooth'})"
+                        class="relative flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-[rgba(255,255,255,0.08)]">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor">
+                        <rect x="3" y="3" width="7" height="7" rx="1"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1"/>
+                        <rect x="14" y="14" width="7" height="7" rx="1"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1"/>
                     </svg>
                     <span>Catégories</span>
                 </button>
             </li>
+
             <li>
-                <button onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth', block:'start'})"
-                        class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[rgba(255,255,255,0.08)] focus:bg-[rgba(255,255,255,0.08)]">
-                    <!-- Icône Contact -->
-                    <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <rect x="3" y="5" width="18" height="14" rx="2" />
-                        <polyline points="3 7 12 13 21 7" />
+                <button onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})"
+                        class="relative flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-[rgba(255,255,255,0.08)]">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor">
+                        <rect x="3" y="5" width="18" height="14" rx="2"/>
+                        <polyline points="3 7 12 13 21 7"/>
                     </svg>
                     <span>Contact</span>
                 </button>
             </li>
+
         </ul>
     </div>
 </nav>
 
-<!-- Daniel page-->
-
-<section  class=" pt-[60px] bg-[#0e2926] text-[#4d2c16] min-h-screen">
-    <div  class=" mx-auto">
-        <div class="w-full  absolute flex justify-center items-start">
+<!-- SECTION ABOUT -->
+<section class="pt-[60px] bg-[#f7efe6]  min-h-screen">
+    <div class="mx-auto">
+        <div class="w-full absolute flex justify-center items-start">
             <div class="w-[80%]">
-                <h1 class="text-white text-4xl text-center p-[50px]">L’histoire de notre passion chocolatée</h1>
-                <p class="text-white text-center text-2xl">
+                <h1 class="text-dark text-4xl text-center p-[50px]">L’histoire de notre passion chocolatée</h1>
+                <p class="text-dark text-center text-2xl">
                     Tout a commencé par une émotion. Celle que procure un carré de chocolat fondant, celle qui réveille 
                     les souvenirs d’enfance, les fêtes, les instants partagés. 
                     C’est cette émotion que notre fondatrice, Élise Moreau, a voulu capturer et transmettre.<br><br>
@@ -147,85 +221,92 @@
         </div>
     </div>
 </section>
-<section class=" bg-[#0e2926]">
-    <div class="flex justify-center ">
-        <!-- gateau -->
-        <div id="gateauBloc"> 
-            <div  id="gateau" class="bg-[#4d2c16] border-4 border-[#4d2c16] rounded-md overflow-hidden w-[180px]  shadow-lg relative bottom-[-400px] grid grid-cols-2 gap-1" data-parallax-speed="0.95">
-                    <img src="images/chocolatBlock.png" class=" "></img>
-                    <img src="images/chocolatBlock.png" class=" "></img>
-                    <img src="images/chocolatBlock.png" class=" "></img>
-                    <img src="images/chocolatBlock.png" class=" "></img>
-                    <img src="images/chocolatBlock.png" class=" "></img>
-                    <img src="images/chocolatBlock.png" class=" "></img>
-                    <img src="images/chocolatBlock.png" class=" "></img>
-                    <img src="images/chocolatBlock.png" class=" "></img>
-            </div>        
+
+<!-- SECTION GATEAU + VAGUE -->
+<section class="bg-[#f7efe6]">
+    <div class="flex justify-center">
+        <div id="gateauBloc">
+            <div id="gateau"
+                 class="bg-[#4d2c16] border-4 border-[#4d2c16] rounded-md overflow-hidden w-[180px] shadow-lg relative bottom-[-400px] grid grid-cols-2 gap-1"
+                 data-parallax-speed="0.95">
+
+                <!-- 8 morceaux -->
+                <img src="images/chocolatBlock.png">
+                <img src="images/chocolatBlock.png">
+                <img src="images/chocolatBlock.png">
+                <img src="images/chocolatBlock.png">
+                <img src="images/chocolatBlock.png">
+                <img src="images/chocolatBlock.png">
+                <img src="images/chocolatBlock.png">
+                <img src="images/chocolatBlock.png">
+
+            </div>
         </div>
     </div>
 
-    <!-- vague chocolat -->
-    <div class="flex justify-center overflow-hidden h-[40vh] w-full relative scale-150 z-9">
-        <svg id="chocoGateau" class="h-[500px] w-[120%]  aabsolute sc " viewBox="0 0 1650 50"  >
+    <div class="flex justify-center  overflow-hidden h-[40vh] w-full relative scale-150 z-20">
+        <svg id="chocoGateau" class="h-[500px] w-[120%]" viewBox="0 0 1650 50">
             <path 
                 d="M0,25
                 C1,15 550,35 825,25
                 C1100,15 1375,35 1650,25
-                L1650,500 L0,500 Z" 
-                fill="#f7efe6">
+                L1650,500 L0,500 Z"
+                fill="#f9bf29">
             </path>
-        </svg>  
-    </div>     
+        </svg>
+    </div>
 </section>
 
-<style>
-    #gateau{
-        animation: bateau 8s ease-in-out infinite;
-        
-    }
-
-    @keyframes bateau {
-        0%, 100% {
-            transform: translateY(0);
-            rotate: 0deg;
-
-        }
-        20%, 60% {
-            rotate: -2deg;
-
-        }
-
-        50% {
-            transform: translateY(-10px);
-        }
-
-        40%, 80% {
-            rotate: 2deg;
-        }
-        25%, 75% {
-            transform: translateY(-20px);
-        }
-    }
-    #chocoGateau{
-        border-radius: 30px 30px 0 0;
-        animation: bateau 5s ease-in-out infinite;
-    }
-</style>
 <script src="js/script.js"></script>
 
+<!-- ANIMATIONS JAVASCRIPT -->
 <script>
+// ------ 1) Choco qui tombent ------
+function spawnChocoPiece(){
+    const piece = document.createElement('div');
+    piece.className = 'choco-piece';
+
+    const size = 8 + Math.random() * 12;
+    piece.style.width = size + "px";
+    piece.style.height = size * 1.4 + "px";
+
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.top = "150px";
+    piece.style.animationDuration = (5 + Math.random() * 5) + "s";
+    piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 12000);
+}
+setInterval(spawnChocoPiece, 700);
+
+// ------ 2) Cacao  ------
+function spawnSpark(){
+    const s = document.createElement('div');
+    s.className = 'spark';
+
+    const size = 4 + Math.random()*6;
+    s.style.width = size+"px";
+    s.style.height = size+"px";
+
+    s.style.left = Math.random()*100 + "vw";
+    s.style.animationDuration = (2 + Math.random()*2) + "s";
+
+    document.getElementById("cacaoSparkLayer").appendChild(s);
+
+    setTimeout(() => s.remove(), 3000);
+}
+setInterval(spawnSpark, 120);
+
+// ------ 3)  gâteau vagues ------
 const gateau = document.getElementById("gateauBloc");
 const path = document.querySelector("#chocoGateau path");
-
-// Extraire les points de contrôle initiaux
 const originalD = path.getAttribute("d");
 const controlPoints = originalD.match(/C\d+,\d+ \d+,\d+ \d+,\d+/g);
 
-// Variables de mouvement
 let mouseX = 0;
 let mouseY = 0;
 
-// Écouteur de souris pour déplacer le gâteau et influencer les vagues
 window.addEventListener("mousemove", (e) => {
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
@@ -238,13 +319,12 @@ window.addEventListener("mousemove", (e) => {
   gateau.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
 });
 
-// Animation des vagues synchronisée avec la souris
 let angle = 0;
 function animateWaves() {
   angle += 0.05;
 
   const screenHeight = window.innerHeight;
-  const mouseInfluence = ((mouseY / screenHeight) - 0.5) * -50; // influence verticale
+  const mouseInfluence = ((mouseY / screenHeight) - 0.5) * -50;
 
   const newD = ["M0,250"];
   controlPoints.forEach((segment, i) => {
@@ -260,7 +340,6 @@ function animateWaves() {
   path.setAttribute("d", newD.join(" "));
   requestAnimationFrame(animateWaves);
 }
-
 animateWaves();
 </script>
 
