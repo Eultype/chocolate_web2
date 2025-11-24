@@ -11,128 +11,6 @@
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
-    <div
-      id="menu-overlay"
-      class="fixed inset-0 bg-black/50 z-[1009] opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out"
-    ></div>
-
-    <div
-      id="side-menu"
-      class="fixed top-0 right-0 h-full w-full bg-[#4d2c16] shadow-2xl z-[1010] transform translate-x-full transition-transform duration-500 cubic-bezier(0.6, 0, 0.2, 1)"
-    >
-      <div
-        class="p-6 h-full flex flex-col justify-center items-center relative"
-      >
-        <button
-          id="close-menu-btn"
-          class="text-[#f7efe6] hover:text-[#f9bf29] transition absolute top-8 right-8 z-20"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-10 w-10"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-
-        <h3
-          class="text-6xl font-extrabold text-[#f9bf29] mb-12 uppercase tracking-widest"
-        >
-          Menu
-        </h3>
-
-        <nav class="space-y-6 text-3xl font-light text-center">
-          <a
-            href="#"
-            class="block text-[#f7efe6] hover:text-[#f9bf29] transition duration-300"
-            >Accueil</a
-          >
-          <a
-            href="#recipes-section"
-            class="block text-[#f7efe6] hover:text-[#f9bf29] transition duration-300"
-            >Nos Recettes</a
-          >
-          <a
-            href="#"
-            class="block text-[#f7efe6] hover:text-[#f9bf29] transition duration-300"
-            >Boutique</a
-          >
-          <a
-            href="#"
-            class="block text-[#f7efe6] hover:text-[#f9bf29] transition duration-300"
-            >Histoires</a
-          >
-          <a
-            href="#"
-            class="block text-[#f7efe6] hover:text-[#f9bf29] transition duration-300"
-            >Contact</a
-          >
-        </nav>
-
-        <div class="mt-12 pt-6">
-          <button
-            class="bg-[#f9bf29] text-[#4d2c16] font-semibold py-3 px-8 text-lg rounded-full hover:bg-[#ffcb3b] transition duration-300 shadow-xl"
-          >
-            Connexion
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <nav
-      class="fixed top-0 left-0 w-full p-4 z-[1000] bg-transparent"
-      id="navbar"
-    >
-      <div class="flex justify-end items-center px-6 w-full">
-        <div class="flex items-center space-x-3">
-          <button
-            id="login-btn"
-            class="text-[#4d2c16] hover:text-[#f9bf29] transition p-4 rounded-full hover:border-[#f9bf29] bg-white/70 backdrop-blur-sm"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </button>
-
-          <button
-            id="menu-burger-btn"
-            class="text-[#4d2c16] hover:text-[#f9bf29] transition bg-white/70 backdrop-blur-sm p-4 rounded-full"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </nav>
 
     <!-- NAVBAR FLOTANTE -->
     <nav
@@ -212,22 +90,25 @@
               <div class="absolute left-1/2 -translate-x-1/2 bottom-full min-w-[170px] bg-white/80 shadow-xl rounded-xl border border-[rgba(77,44,22,0.20)] z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
                   <ul class="py-2 text-[#4d2c16] text-sm">
                       <li class="px-4 py-1 font-bold">Reda</li>
-                      <li><a href="#" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
+                      <li><a href="pages/Reda/recetteReda1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
                       <li class="px-4 py-1 font-bold mt-1">Sola</li>
                       <li><a href="pages/Sola/Recette.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
                       <li><a href="pages/Sola/Recette2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
+<<<<<<< HEAD
                       <li><a href="#" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
+=======
+>>>>>>> 7916cd31a8c57d0c87b1b45698b8d447f26da9cb
                       <li class="px-4 py-1 font-bold mt-1">Jean-Michael</li>
-                      <li><a href="#" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
-                      <li><a href="#" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
+                      <li><a href="pages/JM/recette1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
+                      <li><a href="pages/JM/recette2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
                       <li class="px-4 py-1 font-bold mt-1">Mykyta</li>
                       <li><a href="recetteM1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
                       <li><a href="recetteM2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
                       <li class="px-4 py-1 font-bold mt-1">Daniel</li>
-                      <li><a href="#" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
+                      <li><a href="" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
                       <li class="px-4 py-1 font-bold mt-1">Samuël</li>
-                      <li><a href="recettes3_bis.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
-                      <li><a href="recettes3.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
+                      <li><a href="pages/Sam/recettes3_bis.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
+                      <li><a href="pages/Sam/recettes3.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
                   </ul>
               </div>
           </li>
@@ -252,9 +133,10 @@
             </button>
           </li>
           <li>
-              <button onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth', block:'start'})"
-                      class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
-              >
+            <button
+                    onclick="window.location.href='login.html'"
+                    class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+            >
                   <!-- Icône Connexion -->
                   <svg
                           class="h-4 w-4"
