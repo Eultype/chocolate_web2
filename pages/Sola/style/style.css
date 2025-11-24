@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap");
+
+@theme {
+    --color-clifford: #da373d;
+    --font-reenie: "Reenie Beanie", cursive;
+}
+
+h1 {
+    font-family: var(--font-reenie);
+}
