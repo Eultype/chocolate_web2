@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chocolat Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="icon" href="images/tablette_chocolat1.ico" type="image/png" />
     <!-- Import Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -103,6 +103,7 @@
               onclick="document.getElementById('home').scrollIntoView({behavior:'smooth', block:'start'})"
               class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors]"
               aria-current="page"
+              href="/index.html"
             >
               <!-- Icône Accueil -->
               <svg
@@ -253,8 +254,10 @@
             </div>
           </li>
           <li>
+            <!-- click on the button then go index and scroll into the section contact -->
             <button
               data-section="contact-section"
+              onclick="window.location.href='/index.html'"
               onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth', block:'start'})"
               class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
             >
@@ -274,7 +277,7 @@
           </li>
           <li>
             <button
-              onclick="window.location.href='login.html'"
+              onclick="window.location.href='/login.html'"
               class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
             >
               <!-- Icône Connexion -->
@@ -464,8 +467,9 @@
     <!--End Steps-->
 
     <!--Footer (reda)-->
-    <footer id="" class="relative left-0 bottom-0 w-full z-1000">
-      <div class="bg-[#f7efe6] text-white py-4 relative h-[750px]">
+
+    <section id="footer-section" class="relative z-1000">
+      <div class="bg-[#f7efe6] text-white py-4 relative h-[500px]">
         <div class="container px-[80px] h-9x">
           <div class="flex justify-between items-center">
             <div class="flex justify-between gap-20 my-20">
@@ -579,7 +583,7 @@
             </div>
           </div>
         </div>
-        <div class="vague-pic">
+        <div class="vague-pic" class="">
           <img src="../../images/vague-choco.png" class="" alt="" />
         </div>
         <div class="absolute bottom-0 left-0 p-4">
@@ -592,15 +596,15 @@
         <div class="absolute bottom-0 right-0 p-4">
           <ul class="flex space-x-4">
             <li>J-M</li>
-            <li>mi</li>
             <li>Danni</li>
             <li>Sola</li>
             <li>Samuel</li>
             <li>Reda</li>
+            <li>Mykyta</li>
           </ul>
         </div>
       </div>
-    </footer>
+    </section>
 
     <script src="js/script.js"></script>
   </body>
