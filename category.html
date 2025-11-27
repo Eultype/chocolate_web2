@@ -9,7 +9,6 @@
     <link rel="icon" href="images/tablette_chocolat1.ico" type="image/png" />
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-      /* styles modal */
       .modal-enter { opacity: 0; transform: scale(0.95); }
       .modal-enter-active { opacity: 1; transform: scale(1); transition: all 0.3s ease-out; }
       .modal-exit { opacity: 1; transform: scale(1); }
@@ -18,6 +17,25 @@
       body {
         background-color: #f7efe6;
         color: #4d2c16;
+      }
+
+      .modal-inner { max-height: 90vh; }
+      .modal-left .img-wrap { height: 220px; overflow: hidden; }
+      .modal-left .img-wrap img { width: 100%; height: 100%; object-fit: cover; display:block; }
+
+      @media (min-width: 768px) {
+        .modal-left { flex: 0 0 50%; }
+        .modal-left .img-wrap {
+          position: sticky;
+          top: 0;
+          height: 90vh;
+          overflow: hidden;
+        }
+        .modal-right {
+          flex: 1 1 50%;
+          overflow-y: auto;
+          max-height: 90vh;
+        }
       }
     </style>
   </head>
@@ -63,19 +81,22 @@
       </div>
     </section>
 
+    
     <div id="recipe-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
       <div class="absolute inset-0 bg-[#2d1b14]/60 backdrop-blur-sm" onclick="closeModal()"></div>
 
-      <div class="bg-[#f7efe6] w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl relative z-10 flex flex-col md:flex-row">
-        <button onclick="closeModal()" class="absolute top-4 right-4 bg-white/50 p-2 rounded-full hover:bg-white transition z-20">
+      <div class="bg-[#f7efe6] w-full max-w-4xl rounded-3xl shadow-2xl relative z-10 flex flex-col md:flex-row modal-inner overflow-hidden">
+        <button onclick="closeModal()" class="absolute top-4 right-4 bg-white/70 p-2 rounded-full hover:bg-white transition z-20">
           <i data-lucide="x" class="w-6 h-6 text-[#4d2c16]"></i>
         </button>
 
-        <div class="w-full md:w-1/2 h-64 md:h-auto relative">
-          <img id="modal-img" src="" alt="Recipe" class="absolute inset-0 w-full h-full object-cover">
+        <div class="w-full md:w-1/2 modal-left">
+          <div class="img-wrap">
+            <img id="modal-img" src="" alt="Recipe" class="w-full h-full object-cover" />
+          </div>
         </div>
 
-        <div class="w-full md:w-1/2 p-8 md:p-12 text-[#4d2c16]">
+        <div class="w-full md:w-1/2 modal-right p-8 md:p-12 text-[#4d2c16] overflow-y-auto">
           <span id="modal-tag" class="text-xs font-bold uppercase tracking-wider text-[#d4a15a] mb-2 block"></span>
           <h2 id="modal-title" class="text-3xl md:text-4xl font-serif font-bold mb-4 text-[#7a3c18]"></h2>
 
@@ -102,17 +123,26 @@
             </ul>
           </div>
 
-          <div>
+          <div class="mb-8">
             <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
               <i data-lucide="chef-hat" class="w-4 h-4"></i> Préparation
             </h3>
-            <p id="modal-desc" class="text-sm leading-relaxed opacity-90 whitespace-pre-line">
-            </p>
+            <p id="modal-desc" class="text-sm leading-relaxed opacity-90 whitespace-pre-line"></p>
           </div>
+
+          
+<div class="flex justify-center mt-8">
+  <a id="modal-external-link"
+     href="#"
+     class="hidden px-8 py-4 rounded-xl bg-[#7a3c18] text-white font-bold text-lg hover:bg-[#9c4f23] transition-all shadow-xl">
+     Voir la recette complète
+  </a>
+</div>
         </div>
       </div>
     </div>
 
+   
     <section id="footer-section" class="relative z-1000">
       <div class="bg-[#f7efe6] text-white py-4 relative h-[500px]">
         <div class="container px-[80px] h-9x">
@@ -122,22 +152,51 @@
                 <h2 class="text-3xl mb-4 text-[#7a3c18]">Follow us</h2>
                 <div class="flex gap-3 relative z-10">
                   <a href="#">
-                    <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM12 15.88C9.86 15.88 8.12 14.14 8.12 12C8.12 9.86 9.86 8.12 12 8.12C14.14 8.12 15.88 9.86 15.88 12C15.88 14.14 14.14 15.88 12 15.88ZM17.92 6.88C17.87 7 17.8 7.11 17.71 7.21C17.61 7.3 17.5 7.37 17.38 7.42C17.26 7.47 17.13 7.5 17 7.5C16.73 7.5 16.48 7.4 16.29 7.21C16.2 7.11 16.13 7 16.08 6.88C16.03 6.76 16 6.63 16 6.5C16 6.37 16.03 6.24 16.08 6.12C16.13 5.99 16.2 5.89 16.29 5.79C16.52 5.56 16.87 5.45 17.19 5.52C17.26 5.53 17.32 5.55 17.38 5.58C17.44 5.6 17.5 5.63 17.56 5.67C17.61 5.7 17.66 5.75 17.71 5.79C17.8 5.89 17.87 5.99 17.92 6.12C17.97 6.24 18 6.37 18 6.5C18 6.63 17.97 6.76 17.92 6.88Z" fill="#3D1F0D"/>
+                    <svg
+                      width="24px"
+                      height="24px"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM12 15.88C9.86 15.88 8.12 14.14 8.12 12C8.12 9.86 9.86 8.12 12 8.12C14.14 8.12 15.88 9.86 15.88 12C15.88 14.14 14.14 15.88 12 15.88ZM17.92 6.88C17.87 7 17.8 7.11 17.71 7.21C17.61 7.3 17.5 7.37 17.38 7.42C17.26 7.47 17.13 7.5 17 7.5C16.73 7.5 16.48 7.4 16.29 7.21C16.2 7.11 16.13 7 16.08 6.88C16.03 6.76 16 6.63 16 6.5C16 6.37 16.03 6.24 16.08 6.12C16.13 5.99 16.2 5.89 16.29 5.79C16.52 5.56 16.87 5.45 17.19 5.52C17.26 5.53 17.32 5.55 17.38 5.58C17.44 5.6 17.5 5.63 17.56 5.67C17.61 5.7 17.66 5.75 17.71 5.79C17.8 5.89 17.87 5.99 17.92 6.12C17.97 6.24 18 6.37 18 6.5C18 6.63 17.97 6.76 17.92 6.88Z"
+                        fill="#3D1F0D"
+                      />
                     </svg>
                   </a>
                   <a href="#">
-                    <svg width="24px" height="24px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="24px"
+                      height="24px"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <rect x="0" fill="none" width="20" height="20" />
+
                       <g>
-                        <path d="M2.89 2h14.23c.49 0 .88.39.88.88v14.24c0 .48-.39.88-.88.88h-4.08v-6.2h2.08l.31-2.41h-2.39V7.85c0-.7.2-1.18 1.2-1.18h1.28V4.51c-.22-.03-.98-.09-1.86-.09-1.85 0-3.11 1.12-3.11 3.19v1.78H8.46v2.41h2.09V18H2.89c-.49 0-.89-.4-.89-.88V2.88c0-.49.4-.88.89-.88z" fill="#3D1F0D"/>
+                        <path
+                          d="M2.89 2h14.23c.49 0 .88.39.88.88v14.24c0 .48-.39.88-.88.88h-4.08v-6.2h2.08l.31-2.41h-2.39V7.85c0-.7.2-1.18 1.2-1.18h1.28V4.51c-.22-.03-.98-.09-1.86-.09-1.85 0-3.11 1.12-3.11 3.19v1.78H8.46v2.41h2.09V18H2.89c-.49 0-.89-.4-.89-.88V2.88c0-.49.4-.88.89-.88z"
+                          fill="#3D1F0D"
+                        />
                       </g>
                     </svg>
                   </a>
                   <a href="#">
-                    <svg width="24" height="24" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 21 21"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <g clip-path="url(#clip0_203_17)">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.4855 0.7125C7.0965 0.5325 8.778 0.375 10.5 0.375C12.222 0.375 13.9035 0.5325 15.5145 0.7125C16.739 0.852901 17.8796 1.40456 18.7498 2.27728C19.6201 3.15 20.1685 4.29215 20.3055 5.517C20.478 7.1205 20.625 8.79 20.625 10.5C20.625 12.21 20.478 13.8795 20.3055 15.483C20.1685 16.7078 19.6201 17.85 18.7498 18.7227C17.8796 19.5954 16.739 20.1471 15.5145 20.2875C13.9035 20.4675 12.222 20.625 10.5 20.625C8.778 20.625 7.0965 20.4675 5.4855 20.2875C4.26104 20.1471 3.12044 19.5954 2.25017 18.7227C1.3799 17.85 0.831455 16.7078 0.6945 15.483C0.522 13.8795 0.375 12.21 0.375 10.5C0.375 8.79 0.522 7.1205 0.6945 5.517C0.831455 4.29215 1.3799 3.15 2.25017 2.27728C3.12044 1.40456 4.26104 0.852901 5.4855 0.7125ZM12.498 4.323C12.4462 4.09856 12.3136 3.90104 12.1255 3.76812C11.9374 3.6352 11.7069 3.57618 11.4781 3.60233C11.2492 3.62848 11.038 3.73796 10.8847 3.90989C10.7314 4.08182 10.6468 4.30416 10.647 4.5345V13.2C10.647 13.6604 10.5105 14.1105 10.2547 14.4934C9.99886 14.8762 9.63527 15.1746 9.20989 15.3508C8.7845 15.527 8.31642 15.5731 7.86483 15.4833C7.41324 15.3934 6.99843 15.1717 6.67286 14.8461C6.34728 14.5206 6.12556 14.1058 6.03573 13.6542C5.94591 13.2026 5.99201 12.7345 6.16821 12.3091C6.34441 11.8837 6.64279 11.5201 7.02563 11.2643C7.40847 11.0085 7.85857 10.872 8.319 10.872C8.56764 10.872 8.8061 10.7732 8.98191 10.5974C9.15773 10.4216 9.2565 10.1831 9.2565 9.9345C9.2565 9.68586 9.15773 9.4474 8.98191 9.27159C8.8061 9.09577 8.56764 8.997 8.319 8.997C7.48773 8.997 6.67512 9.2435 5.98394 9.70533C5.29276 10.1672 4.75405 10.8236 4.43593 11.5916C4.11782 12.3596 4.03459 13.2047 4.19676 14.02C4.35893 14.8353 4.75923 15.5842 5.34703 16.172C5.93483 16.7598 6.68373 17.1601 7.49903 17.3222C8.31434 17.4844 9.15942 17.4012 9.92742 17.0831C10.6954 16.7649 11.3518 16.2262 11.8137 15.5351C12.2755 14.8439 12.522 14.0313 12.522 13.2V7.965C13.422 8.73 14.583 9.15 15.945 9.15C16.1936 9.15 16.4321 9.05123 16.6079 8.87541C16.7837 8.6996 16.8825 8.46114 16.8825 8.2125C16.8825 7.96386 16.7837 7.7254 16.6079 7.54959C16.4321 7.37377 16.1936 7.275 15.945 7.275C14.955 7.275 14.22 6.969 13.6785 6.4875C13.1265 5.9955 12.717 5.2635 12.498 4.323Z" fill="#3D1F0D"/>
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M5.4855 0.7125C7.0965 0.5325 8.778 0.375 10.5 0.375C12.222 0.375 13.9035 0.5325 15.5145 0.7125C16.739 0.852901 17.8796 1.40456 18.7498 2.27728C19.6201 3.15 20.1685 4.29215 20.3055 5.517C20.478 7.1205 20.625 8.79 20.625 10.5C20.625 12.21 20.478 13.8795 20.3055 15.483C20.1685 16.7078 19.6201 17.85 18.7498 18.7227C17.8796 19.5954 16.739 20.1471 15.5145 20.2875C13.9035 20.4675 12.222 20.625 10.5 20.625C8.778 20.625 7.0965 20.4675 5.4855 20.2875C4.26104 20.1471 3.12044 19.5954 2.25017 18.7227C1.3799 17.85 0.831455 16.7078 0.6945 15.483C0.522 13.8795 0.375 12.21 0.375 10.5C0.375 8.79 0.522 7.1205 0.6945 5.517C0.831455 4.29215 1.3799 3.15 2.25017 2.27728C3.12044 1.40456 4.26104 0.852901 5.4855 0.7125ZM12.498 4.323C12.4462 4.09856 12.3136 3.90104 12.1255 3.76812C11.9374 3.6352 11.7069 3.57618 11.4781 3.60233C11.2492 3.62848 11.038 3.73796 10.8847 3.90989C10.7314 4.08182 10.6468 4.30416 10.647 4.5345V13.2C10.647 13.6604 10.5105 14.1105 10.2547 14.4934C9.99886 14.8762 9.63527 15.1746 9.20989 15.3508C8.7845 15.527 8.31642 15.5731 7.86483 15.4833C7.41324 15.3934 6.99843 15.1717 6.67286 14.8461C6.34728 14.5206 6.12556 14.1058 6.03573 13.6542C5.94591 13.2026 5.99201 12.7345 6.16821 12.3091C6.34441 11.8837 6.64279 11.5201 7.02563 11.2643C7.40847 11.0085 7.85857 10.872 8.319 10.872C8.56764 10.872 8.8061 10.7732 8.98191 10.5974C9.15773 10.4216 9.2565 10.1831 9.2565 9.9345C9.2565 9.68586 9.15773 9.4474 8.98191 9.27159C8.8061 9.09577 8.56764 8.997 8.319 8.997C7.48773 8.997 6.67512 9.2435 5.98394 9.70533C5.29276 10.1672 4.75405 10.8236 4.43593 11.5916C4.11782 12.3596 4.03459 13.2047 4.19676 14.02C4.35893 14.8353 4.75923 15.5842 5.34703 16.172C5.93483 16.7598 6.68373 17.1601 7.49903 17.3222C8.31434 17.4844 9.15942 17.4012 9.92742 17.0831C10.6954 16.7649 11.3518 16.2262 11.8137 15.5351C12.2755 14.8439 12.522 14.0313 12.522 13.2V7.965C13.422 8.73 14.583 9.15 15.945 9.15C16.1936 9.15 16.4321 9.05123 16.6079 8.87541C16.7837 8.6996 16.8825 8.46114 16.8825 8.2125C16.8825 7.96386 16.7837 7.7254 16.6079 7.54959C16.4321 7.37377 16.1936 7.275 15.945 7.275C14.955 7.275 14.22 6.969 13.6785 6.4875C13.1265 5.9955 12.717 5.2635 12.498 4.323Z"
+                          fill="#3D1F0D"
+                        />
                       </g>
                       <defs>
                         <clipPath id="clip0_203_17">
@@ -147,9 +206,20 @@
                     </svg>
                   </a>
                   <a href="#">
-                    <svg width="24" height="24" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <g clip-path="url(#clip0_203_19)">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.58334 0.916748C3.61088 0.916748 2.67825 1.30306 1.99061 1.99069C1.30298 2.67832 0.916672 3.61095 0.916672 4.58341V17.4167C0.916672 18.3892 1.30298 19.3218 1.99061 20.0095C2.67825 20.6971 3.61088 21.0834 4.58334 21.0834H17.4167C18.3891 21.0834 19.3218 20.6971 20.0094 20.0095C20.697 19.3218 21.0833 18.3892 21.0833 17.4167V4.58341C21.0833 3.61095 20.697 2.67832 20.0094 1.99069C19.3218 1.30306 18.3891 0.916748 17.4167 0.916748H4.58334ZM4.27717 4.12508C4.17683 4.16237 4.08657 4.22258 4.01361 4.30092C3.94064 4.37925 3.88697 4.47354 3.85688 4.57627C3.82679 4.67901 3.82111 4.78735 3.84029 4.89267C3.85946 4.99799 3.90297 5.09738 3.96734 5.18291L9.11351 12.0121L3.69142 17.8283L3.65109 17.8751H5.5275L9.955 13.1277L13.3577 17.645C13.4366 17.7496 13.5438 17.8294 13.6666 17.8751H17.7201C17.8203 17.8376 17.9103 17.7772 17.9831 17.6988C18.0559 17.6204 18.1093 17.5261 18.1393 17.4234C18.1692 17.3207 18.1747 17.2124 18.1554 17.1072C18.1361 17.0019 18.0925 16.9027 18.0281 16.8172L12.8819 9.98808L18.3489 4.12508H16.4698L12.0423 8.87341L8.63775 4.35608C8.55894 4.25118 8.45174 4.17102 8.32884 4.12508H4.27717ZM14.2505 16.5441L5.89509 5.45608H7.74584L16.1003 16.5432L14.2505 16.5441Z" fill="#3D1F0D"/>
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M4.58334 0.916748C3.61088 0.916748 2.67825 1.30306 1.99061 1.99069C1.30298 2.67832 0.916672 3.61095 0.916672 4.58341V17.4167C0.916672 18.3892 1.30298 19.3218 1.99061 20.0095C2.67825 20.6971 3.61088 21.0834 4.58334 21.0834H17.4167C18.3891 21.0834 19.3218 20.6971 20.0094 20.0095C20.697 19.3218 21.0833 18.3892 21.0833 17.4167V4.58341C21.0833 3.61095 20.697 2.67832 20.0094 1.99069C19.3218 1.30306 18.3891 0.916748 17.4167 0.916748H4.58334ZM4.27717 4.12508C4.17683 4.16237 4.08657 4.22258 4.01361 4.30092C3.94064 4.37925 3.88697 4.47354 3.85688 4.57627C3.82679 4.67901 3.82111 4.78735 3.84029 4.89267C3.85946 4.99799 3.90297 5.09738 3.96734 5.18291L9.11351 12.0121L3.69142 17.8283L3.65109 17.8751H5.5275L9.955 13.1277L13.3577 17.645C13.4366 17.7496 13.5438 17.8294 13.6666 17.8751H17.7201C17.8203 17.8376 17.9103 17.7772 17.9831 17.6988C18.0559 17.6204 18.1093 17.5261 18.1393 17.4234C18.1692 17.3207 18.1747 17.2124 18.1554 17.1072C18.1361 17.0019 18.0925 16.9027 18.0281 16.8172L12.8819 9.98808L18.3489 4.12508H16.4698L12.0423 8.87341L8.63775 4.35608C8.55894 4.25118 8.45174 4.17102 8.32884 4.12508H4.27717ZM14.2505 16.5441L5.89509 5.45608H7.74584L16.1003 16.5432L14.2505 16.5441Z"
+                          fill="#3D1F0D"
+                        />
                       </g>
                       <defs>
                         <clipPath id="clip0_203_19">
@@ -160,7 +230,6 @@
                   </a>
                 </div>
               </div>
-
               <div>
                 <h2 class="text-3xl mb-4 text-[#7a3c18]">Pages</h2>
                 <div class="text-[#3D1F0D]">
@@ -169,23 +238,29 @@
                   <a class="block" href="">About</a>
                 </div>
               </div>
-
               <div>
                 <h2 class="text-3xl mb-4 text-[#7a3c18]">Info</h2>
                 <div class="text-[#3D1F0D]">
-                  <a class="block" target="_blank" href="https://www.google.com/maps/place/Centre+de+Formation+2mille/@50.8255085,4.3361576,17z/data=!3m1!4b1!4m6!3m5!1s0x47c3c4424e23846d:0x96f406ef5208ebd9!8m2!3d50.8255051!4d4.3387325!16s%2Fg%2F1tj20q1k?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D">Adresse : Av. du Parc 89, 1060 Bruxelles</a>
-                  <a class="block" href="mailto:centredeformationCF2M@gmail.com">Email : centredeformationCF2M@gmail.com</a>
-                  <a class="block" href="tel:+32025390360">Tel : +32 02.53.90.36.0</a>
+                  <a
+                    class="block"
+                    target="_blank"
+                    href="https://www.google.com/maps/place/Centre+de+Formation+2mille/@50.8255085,4.3361576,17z/data=!3m1!4b1!4m6!3m5!1s0x47c3c4424e23846d:0x96f406ef5208ebd9!8m2!3d50.8255051!4d4.3387325!16s%2Fg%2F1tj20q1k?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D "
+                    >Adresse : Av. du Parc 89, 1060 Bruxelles</a
+                  >
+                  <a class="block" href="mailto:centredeformationCF2M@gmail.com"
+                    >Email : centredeformationCF2M@gmail.com</a
+                  >
+                  <a class="block" href="tel:+32025390360"
+                    >Tel : +32 02.53.90.36.0</a
+                  >
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="vague-pic">
           <img src="images/vague-choco.png" class="" alt="" />
         </div>
-
         <div class="absolute bottom-0 left-0 p-4">
           <ul class="flex space-x-4">
             <li>© 2025 Chocolat Hub, LLC, All Rights Reserved.</li>
@@ -193,7 +268,6 @@
             <li>Privacy Policy</li>
           </ul>
         </div>
-
         <div class="absolute bottom-0 right-0 p-4">
           <ul class="flex space-x-4">
             <li>J-M</li>
@@ -210,51 +284,51 @@
     <script>
       lucide.createIcons();
 
-      // base de données des recettes
       const recipesData = [
         {
           id: 1,
-          category: "mousse",
-          title: "Mousse Intense",
-          image: "images/fondantAuChocolat.jpg",
-          time: "20 min",
+          line: "pages/Reda/recetteReda1.html",
+          category: "gateau",
+          title: "Choco Wanta",
+          image: "images/fondant.jpg",
+          time: "30 min",
           level: "Facile",
           servings: "4 pers",
-          ingredients: ["200g Chocolat Noir 70%", "6 Oeufs", "1 pincée de sel", "30g Sucre"],
-          desc: "Faites fondre le chocolat au bain-marie.\nSéparez les blancs des jaunes.\nMontez les blancs en neige ferme.\nMélangez les jaunes au chocolat tiédi, puis incorporez délicatement les blancs.\nRéservez 4h au frais."
+          ingredients: ["200g Chocolat Noir 95%", "100g Beurre", "50g Farine", "100g Sucre", "50g Sel", "4 Oeufs", "1 sachet Vanille"],
+          desc: "1. Préchauffe ton four à 180°C (chaleur traditionnelle).\n2. Dans une casserole ou au micro-ondes, fais fondre le chocolat noir avec le beurre...\n8. Laisse reposer 1 minute avant de démouler."
         },
         {
           id: 2,
-          category: "gateau",
-          title: "Tarte Cacao & Sel",
-          image: "images/Tarte Cacao & Sel.webp",
-          time: "1h 15",
-          level: "Moyen",
+          category: "mousse",
+          title: "Mousse au chocolat",
+          image: "pages/Sola/image2.jpg",
+          time: "20 min + froid",
+          level: "Facile",
           servings: "6 pers",
-          ingredients: ["Pâte sablée", "200ml Crème liquide", "200g Chocolat Noir", "50g Beurre", "Fleur de sel"],
-          desc: "Cuire la pâte sablée à blanc (180°C, 20min).\nChauffer la crème, verser sur le chocolat haché (ganache).\nAjouter le beurre et lisser.\nVerser sur le fond de tarte.\nSaupoudrer de fleur de sel et laisser figer."
+          ingredients: ["- 200 g de chocolat noir (70 % minimum)", "6 œufs frais", "1 pincée de sel", "(optionnel) un filet de café noir"],
+          desc: "Une mousse au chocolat, c’est un peu comme un bon design : minimaliste, mais chaque détail compte..."
         },
         {
           id: 3,
-          category: "boisson",
-          title: "Choco Chaud Épicé",
-          image: "images/Choco Chaud Épicé.webp",
-          time: "10 min",
-          level: "Très Facile",
-          servings: "2 tasses",
-          ingredients: ["500ml Lait entier", "100g Chocolat Noir", "1 Bâton cannelle", "1 pincée Piment"],
-          desc: "Chauffer le lait avec la cannelle.\nRetirer du feu, ajouter le chocolat et fouetter.\nAjouter le piment.\nServir bien chaud avec de la chantilly."
+          category: "gateau",
+          title: "Gâteau praliné chocolat-noisette",
+          image: "images/JM-recette/gateauPralineChocolatNoisette.jpg",
+          time: "30 min",
+          level: "Facile",
+          servings: "6 pers",
+          ingredients: ["200 g de chocolat noir","150 g de pâte de noisette","100 g de beurre","100 g de sucre","3 œufs","50 g de farine"],
+          desc: "1. Préchauffez le four à 180°C...\n6. Laissez refroidir avant de démouler."
         },
         {
           id: 4,
           category: "gateau",
-          title: "Fondant Coeur Coulant",
-          image: "images/Fondant Coeur Coulant.webp",
+          title: "Les brownies de grand-mère",
+          image: "images/brownieAuChocolat.jpg",
           time: "25 min",
           level: "Moyen",
           servings: "4 pers",
-          ingredients: ["100g Chocolat", "100g Beurre", "3 Oeufs", "80g Sucre", "50g Farine"],
-          desc: "Fondre beurre et chocolat.\nFouetter oeufs et sucre, ajouter le mélange chocolat.\nAjouter farine.\nVerser dans des moules beurrés.\nCuire 10 min à 200°C (le centre doit rester mou)."
+          ingredients: ["200 g de chocolat noir","120 g de beurre","150 g de sucre","100 g de farine","2 oeufs","1 c. à s. de cacao","1 pincée de sel"],
+          desc: "1. Fonds le chocolat et le beurre...\nLe centre doit rester tendre, presque timide."
         },
         {
           id: 5,
@@ -265,7 +339,7 @@
           level: "Difficile",
           servings: "1 litre",
           ingredients: ["500ml Eau", "200g Sucre", "80g Cacao en poudre", "50g Chocolat 85%"],
-          desc: "Faire un sirop avec l'eau et le sucre.\nAjouter le cacao et le chocolat, mixer.\nLaisser refroidir complètement.\nTurbiner en sorbetière."
+          desc: "Faire un sirop avec l'eau et le sucre...\nTurbiner en sorbetière."
         },
         {
           id: 6,
@@ -276,19 +350,16 @@
           level: "Très Facile",
           servings: "1 verre",
           ingredients: ["1 Banane", "200ml Lait amande", "1 c.à.s Cacao non sucré", "Miel"],
-          desc: "Mettre tous les ingrédients dans un blender.\nMixer jusqu'à obtenir une texture lisse.\nAjouter des glaçons si désiré."
+          desc: "Mettre tous les ingrédients dans un blender...\nAjouter des glaçons si désiré."
         }
       ];
 
-      // 2. RENDER GRID
       const grid = document.getElementById('recipes-grid');
+      const modal = document.getElementById('recipe-modal');
 
       function renderRecipes(filter = 'all') {
-        grid.innerHTML = ''; // Clear current
-
-        const filtered = filter === 'all'
-          ? recipesData
-          : recipesData.filter(r => r.category === filter);
+        grid.innerHTML = '';
+        const filtered = filter === 'all' ? recipesData : recipesData.filter(r => r.category === filter);
 
         filtered.forEach(recipe => {
           const card = document.createElement('div');
@@ -310,8 +381,11 @@
                 </span>
               </div>
               <p class="text-sm text-gray-500 line-clamp-2 mb-4">Cliquez pour voir les ingrédients et la préparation complète.</p>
-              <button class="w-full py-2 rounded-lg bg-[#fbe7cd] text-[#4d2c16] font-bold text-sm hover:bg-[#f9bf29] transition-colors flex justify-center items-center gap-2">
-                Voir la recette <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              
+             
+              <button type="button" onclick="openModal(${recipe.id}); event.stopPropagation();" 
+                      class="w-full py-3 rounded-lg bg-[#fbe7cd] text-[#4d2c16] font-bold hover:bg-[#f9bf29] transition-colors flex justify-center items-center gap-2">
+                Voir la recette <i data-lucide="arrow-right" class="w-5 h-5"></i>
               </button>
             </div>
           `;
@@ -320,30 +394,20 @@
         lucide.createIcons();
       }
 
-      // 3. FILTER LOGIC
       function filterRecipes(category) {
-        // Update buttons styling
         document.querySelectorAll('.filter-btn').forEach(btn => {
           btn.classList.remove('bg-[#4d2c16]', 'text-[#f7efe6]', 'ring-2', 'ring-offset-2', 'ring-[#4d2c16]');
           btn.classList.add('bg-white', 'text-[#4d2c16]');
         });
-
-        // Highlight active
-        const activeBtn = event.target;
-        activeBtn.classList.remove('bg-white', 'text-[#4d2c16]');
-        activeBtn.classList.add('bg-[#4d2c16]', 'text-[#f7efe6]', 'ring-2', 'ring-offset-2', 'ring-[#4d2c16]');
-
+        event.target.classList.remove('bg-white', 'text-[#4d2c16]');
+        event.target.classList.add('bg-[#4d2c16]', 'text-[#f7efe6]', 'ring-2', 'ring-offset-2', 'ring-[#4d2c16]');
         renderRecipes(category);
       }
-
-      // 4. MODAL LOGIC
-      const modal = document.getElementById('recipe-modal');
 
       function openModal(id) {
         const recipe = recipesData.find(r => r.id === id);
         if (!recipe) return;
 
-        // Fill data
         document.getElementById('modal-img').src = recipe.image;
         document.getElementById('modal-tag').textContent = recipe.category;
         document.getElementById('modal-title').textContent = recipe.title;
@@ -352,13 +416,20 @@
         document.getElementById('modal-level').textContent = recipe.level;
         document.getElementById('modal-desc').textContent = recipe.desc;
 
-        // Fill ingredients list
         const ingList = document.getElementById('modal-ingredients');
         ingList.innerHTML = recipe.ingredients.map(ing => `<li>${ing}</li>`).join('');
 
-        // Show modal
+        const externalLink = document.getElementById('modal-external-link');
+        if (recipe.line) {
+          externalLink.href = recipe.line;
+          externalLink.classList.remove('hidden');
+        } else {
+          externalLink.classList.add('hidden');
+        }
+
         modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Stop background scrolling
+        document.body.style.overflow = 'hidden';
+        lucide.createIcons();
       }
 
       function closeModal() {
@@ -366,7 +437,7 @@
         document.body.style.overflow = '';
       }
 
-      // Init
+    
       renderRecipes();
     </script>
   </body>
