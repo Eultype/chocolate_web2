@@ -11,79 +11,15 @@
 </head>
 
 <body style="background-color: #E8E0D8;">
-  <div class="flex justify-center">
-    <img class="sm:w-auto sm:h-auto md:w-3/5 md:h-3/5 lg:w-4/5 lg:h-4/5" src="../../images/ChocolatHub_title2_upscale_crop.png" alt="">
-  </div>
-  <div class="flex items-center justify-center p-6">
-    <div class=" shadow-lg rounded-2xl overflow-hidden max-w-4xl w-full" style="background-color: #C4AF9A;">
-      <!-- image du dessert -->
-      <div class="h-64 md:h-auto">
-        <img src="../../images/JM-recette/gateauPralineChocolatNoisette.jpg" alt="Delicious Recipe" class="w-full h-full object-cover">
-      </div>
+  <div class="">
+    <div class="">
+        <img src="../../images/ChocolatHub_title2_upscale.png" alt="Chocolat Hub" class="w-auto h-24 mb-8 mx-auto">
 
-      <!-- titre de la recette et petite description si nécessaire -->
-      <div class="p-6">
-        <h2 class="text-3xl font-bold font-serif text-white mb-2">Gâteau praliné chocolat-noisette</h2>
-        <p class="text-white mb-4"></p>
-
-        <!-- ingrédients -->
-        <div class="mb-4">
-          <h3 class="text-xl font-semibold text-white mb-2">Ingrédients (pour 6 personnes) :</h3>
-          <ul class="list-disc pl-5 space-y-1 text-white text-sm">
-            <li>200 g de chocolat noir</li>
-            <li>150 g de pâte de noisette</li>
-            <li>100 g de beurre</li>
-            <li>100 g de sucre</li>
-            <li>3 œufs</li>
-            <li>50 g de farine</li>
-            <li>50 g de farine</li>
-          </ul>
-        </div>
-
-        <!-- Carousel -->
-        <div x-data="carousel()" x-cloak class="relative mb-6" style="background-color: #C4AF9A;border: solid 3px #E8E0D8; border-radius: 10px">
-          <div class="relative overflow-hidden rounded-lg shadow-xl p-4">
-            <div class="flex" :style="trackStyle" @transitionend="onTransitionEnd">
-              <template x-for="(slide, index) in track" :key="`${slide.id}-${index}`">
-                <div class="flex-none px-2 py-4" :style="`width: ${slidePercentage}%;`">
-                  <div class="rounded-lg overflow-hidden h-full">
-                    <div class="aspect-square flex items-center justify-center">
-                      <img :src="slide.image" :alt="slide.title || ('Slide ' + (index+1))" class="w-full h-full object-cover rounded-lg" @error="handleImageError(slide)">
-                    </div>
-                  </div>
-                </div>
-              </template>
-            </div>
-          </div>
-          <!-- précédent -->
-          <button @click="prev()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10" aria-label="Previous">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <!-- suivant -->
-          <button @click="next()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10" aria-label="Next">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-
-        <!-- préparation -->
-        <div>
-          <h3 class="text-xl font-semibold text-white mb-2">Préparation :</h3>
-          <ol class="list-decimal pl-5 space-y-1 text-white text-sm">
-            <li>Préchauffez le four à 180°C.</li>
-            <li>Faites fondre le chocolat et le beurre au bain-marie.</li>
-            <li>Ajoutez la pâte de noisette et le sucre, puis mélangez bien.</li>
-            <li>Incorporez les œufs un à un, puis la farine.</li>
-            <li>Versez la pâte dans un moule beurré, saupoudrez de noisettes concassées et enfournez 25-30 minutes.</li>
-            <li>Laissez refroidir avant de démouler.</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <h1 class="text-6xl font-bold text-[#7a3c18] mb-4">404</h1>
+        <h2 class="text-3xl font-serif text-[#4d2c16] mb-6">Oups ! Cette page a disparu...</h2>
+        <p class="text-lg text-[#5a3d2b] mb-8">
+            Comme un chocolat fondu au soleil, cette page s'est évanouie. Peut-être une faute de frappe dans l'URL ou un lien brisé ?
+        </p>
   <!-- footer -->
   <section id="footer-section" class="relative z-1000">
     <div class="text-white py-4 relative h-[500px]">
