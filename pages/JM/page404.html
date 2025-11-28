@@ -11,16 +11,19 @@
 </head>
 
 <body style="background-color: #E8E0D8;">
-  <div class="">
-    <div class="">
-        <img src="../../images/ChocolatHub_title2_upscale.png" alt="Chocolat Hub" class="w-auto h-24 mb-8 mx-auto">
-
-        <h1 class="text-6xl font-bold text-[#7a3c18] mb-4">404</h1>
-        <h2 class="text-3xl font-serif text-[#4d2c16] mb-6">Oups ! Cette page a disparu...</h2>
+  <div class="min-h-screen flex flex-col items-center justify-center">
+    <div class="text-center">
+      <img src="../../images/ChocolatHub_title2_upscale_crop.png" alt="Chocolat Hub" class="w-1/2 h-1/2 mb-8 mx-auto">
+      <div class="max-w-lg mx-auto">
+        <h1 class="text-6xl font-bold text-[#7a3c18] mb-4">En construstion</h1>
+        <h2 class="text-3xl font-serif text-[#4d2c16] mb-6">Oups ! Cette page est en construstion...</h2>
         <p class="text-lg text-[#5a3d2b] mb-8">
-            Comme un chocolat fondu au soleil, cette page s'est évanouie. Peut-être une faute de frappe dans l'URL ou un lien brisé ?
+          Comme un chocolat fondu au soleil, cette page s'est évanouie. Peut-être une faute de frappe dans l'URL ou un lien brisé ?
         </p>
-  <!-- footer -->
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
   <section id="footer-section" class="relative z-1000">
     <div class="text-white py-4 relative h-[500px]">
       <div class="container px-[80px] h-9x">
@@ -120,7 +123,6 @@
       </div>
     </div>
   </section>
-
   <script>
     function carousel() {
       return {
@@ -166,7 +168,6 @@
             image: '../../images/JM-recette/vanille.png'
           },
         ],
-
         track: [],
         get pagesCount() {
           return Math.max(1, this.slides.length - this.visibleSlides + 1);
@@ -202,10 +203,8 @@
           const head = this.slides.slice(-this.visibleSlides);
           const tail = this.slides.slice(0, this.visibleSlides);
           this.track = [...head, ...this.slides, ...tail];
-
           this.useTransition = false;
           this.internalIndex = this.current + this.visibleSlides;
-
           requestAnimationFrame(() => {
             this.useTransition = true;
           });
@@ -220,7 +219,6 @@
         },
         goTo(index) {
           index = Math.max(0, Math.min(index, this.pagesCount - 1));
-
           const targetInternal = index + this.visibleSlides;
           this.current = index;
           this.internalIndex = targetInternal;
@@ -233,7 +231,6 @@
               this.useTransition = true;
             });
           }
-
           if (this.internalIndex <= 0) {
             this.useTransition = false;
             this.internalIndex = this.slides.length;
