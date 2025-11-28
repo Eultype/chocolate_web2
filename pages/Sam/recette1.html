@@ -147,7 +147,7 @@
     </nav>
 </main>
 
-<div class="container mx-auto px-5 my-5">
+<section class="container mx-auto px-5 my-5">
     <!-- Titres -->
     <div class="recette-title flex flex-col justify-center text-center items-center mx-auto mt-10">
         <h1 class="text-4xl md:text-7xl mt-10 md:mt-0 text-[#4d2c16]">Tiramisu au chocolat</h1>
@@ -286,10 +286,10 @@
     </section>
 
     <!-- Astouce -->
-    <div class="astouce text-center my-10">
+    <section class="astouce text-center my-10">
         <h1 class="mb-2 md:mb-1 text-2xl text-[#4d2c16] inline-block bg-yellow-400 px-2 rounded">Astouce</h1>
         <p class="text-[#7a3c18] font-medium px-4 md:px-24">Le chocolat fondu doit être complètement froid avant d'intégrer la crème (très important !). Et pour la quantité... Assurez-vous d'en mettre suffisamment pour que votre dentiste vous envoie une carte de vœux !</p>
-    </div>
+    </section>
 
     <!-- Chiffre page -->
     <p class="text-center mt-10 font-bold">1</p>
@@ -324,7 +324,7 @@
 
             <!-- Fil des commentaires -->
             <div class="commentaire-liste-2 space-y-4">
-                <div class="comment-item bg-gray-100 p-4 rounded-lg">
+                <div class="commentaire-item-2 bg-gray-100 p-4 rounded-lg">
                     <p class="font-bold text-[#4d2c16]">Utilisateur Anonyme a dit</p>
                     <p class="text-gray-600 text-sm"><span class="font-bold">Sujet</span>: Super recette !</p>
                     <p class="text-gray-800 text-sm mt-2">Super recette, j'ai adoré les cannolis !</p>
@@ -339,7 +339,7 @@
             </div>
         </div>
     </section>
-</div>
+</section>
 
 <section id="footer-section" class="relative z-1000">
     <div class="text-white py-4 relative h-[500px]">
@@ -509,7 +509,7 @@
             const commentaireListe2 = document.querySelector('.commentaire-liste-2');
 
             const nouveauCommentaire2 = document.createElement('div');
-            nouveauCommentaire2.classList.add('comment-item', 'bg-gray-100', 'p-4', 'rounded-lg');
+            nouveauCommentaire2.classList.add('commentaire-item-2', 'bg-gray-100', 'p-4', 'rounded-lg');
             nouveauCommentaire2.innerHTML = `
                 <p class="font-bold text-[#4d2c16]">${nom2} a dit</p>
                 <p class="text-gray-600 text-sm"><span class="font-bold">Sujet</span>: ${sujet2}</p>

@@ -17,7 +17,6 @@
 
 <main>
     <!-- NAVBAR FLOTANTE -->
-    <!-- NAVBAR FLOTANTE -->
     <nav
             id="navbar-img"
             aria-label="Navigation Principale"
@@ -146,7 +145,7 @@
     </nav>
 </main>
 
-<div class="container mx-auto px-5 my-5">
+<section class="container mx-auto px-5 my-5">
     <!-- Titres -->
     <div class="recette-title flex flex-col justify-center text-center items-center mx-auto mt-10">
         <h1 class="text-4xl md:text-7xl mt-10 md:mt-0 text-[#4d2c16]">Cannolis aux chocolat</h1>
@@ -295,10 +294,10 @@
     </section>
 
     <!-- Astouce -->
-    <div class="astouce text-center my-10">
+    <section class="astouce text-center my-10">
         <h1 class="mb-2 md:mb-1 text-2xl text-[#4d2c16] inline-block bg-yellow-400 px-2 rounded">Astouce</h1>
         <p class="text-[#7a3c18] font-medium px-4 md:px-24">Garnissez les coques au dernier moment. Sinon, c'est comme donner un bain à votre croustillant : c'est très doux, mais qui veut d'un cannoli qui fait PLOUF ?</p>
-    </div>
+    </section>
 
     <!-- Chiffre page -->
     <p class="text-center mt-10 font-bold">2</p>
@@ -333,7 +332,7 @@
 
             <!-- Fil des commentaires -->
             <div class="commentaire-liste space-y-4">
-                <div class="comment-item bg-gray-100 p-4 rounded-lg">
+                <div class="commentaire-item bg-gray-100 p-4 rounded-lg">
                     <p class="font-bold text-[#4d2c16]">Utilisateur Anonyme a dit</p>
                     <p class="text-gray-600 text-sm"><span class="font-bold">Sujet</span>: Super recette !</p>
                     <p class="text-gray-800 text-sm mt-2">Super recette, j'ai adoré les cannolis !</p>
@@ -348,7 +347,7 @@
             </div>
         </div>
     </section>
-</div>
+</section>
 
 <section id="footer-section" class="relative z-1000">
     <div class="text-white py-4 relative h-[500px]">
@@ -518,7 +517,7 @@
             const commentaireListe = document.querySelector('.commentaire-liste');
 
             const nouveauCommentaire = document.createElement('div');
-            nouveauCommentaire.classList.add('comment-item', 'bg-gray-100', 'p-4', 'rounded-lg');
+            nouveauCommentaire.classList.add('commentaire-item', 'bg-gray-100', 'p-4', 'rounded-lg');
             nouveauCommentaire.innerHTML = `
                 <p class="font-bold text-[#4d2c16]">${nom} a dit</p>
                 <p class="text-gray-600 text-sm"><span class="font-bold">Sujet</span>: ${sujet}</p>
