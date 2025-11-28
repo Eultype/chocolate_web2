@@ -281,18 +281,20 @@
     </section>
 
     <!-- Navigation inférieure -->
-    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 no-print">
-      <div class="bg-[rgba(255,255,255,0.85)] backdrop-blur-lg border border-white/30 rounded-3xl px-8 py-4 shadow-2xl">
-        <ul class="flex items-center gap-10 text-sm font-bold text-[#4d2c16]">
-          <li>
-            <a href="index.html" class="flex items-center gap-3 px-5 py-3 rounded-2xl hover:bg-[#fbe7cd] transition-all">
-              <i data-lucide="arrow-left" class="w-5 h-5"></i>
-              Retour à l'accueil
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+<nav class="fixed bottom-6 left-8 z-40 no-print">
+  <div class="bg-[rgba(255,255,255,0.85)] backdrop-blur-lg border border-white/30 rounded-3xl p-3 shadow-2xl">
+    <ul class="flex items-center gap-10 text-sm font-bold text-[#4d2c16]">
+      <li>
+        <a href="index.html" class="flex items-center justify-center w-12 h-12 rounded-2xl hover:bg-[#fbe7cd] transition-all">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+        d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h7.5"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
     <section id="footer-section" class="relative z-1000">
       <div class="bg-[#f7efe6] text-white py-4 relative h-[500px]">
@@ -327,33 +329,63 @@
                       </defs>
                     </svg>
                   </a>
+                  <a href="#">
+                    <svg width="24" height="24" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_203_19)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.58334 0.916748C3.61088 0.916748 2.67825 1.30306 1.99061 1.99069C1.30298 2.67832 0.916672 3.61095 0.916672 4.58341V17.4167C0.916672 18.3892 1.30298 19.3218 1.99061 20.0095C2.67825 20.6971 3.61088 21.0834 4.58334 21.0834H17.4167C18.3891 21.0834 19.3218 20.6971 20.0094 20.0095C20.697 19.3218 21.0833 18.3892 21.0833 17.4167V4.58341C21.0833 3.61095 20.697 2.67832 20.0094 1.99069C19.3218 1.30306 18.3891 0.916748 17.4167 0.916748H4.58334ZM4.27717 4.12508C4.17683 4.16237 4.08657 4.22258 4.01361 4.30092C3.94064 4.37925 3.88697 4.47354 3.85688 4.57627C3.82679 4.67901 3.82111 4.78735 3.84029 4.89267C3.85946 4.99799 3.90297 5.09738 3.96734 5.18291L9.11351 12.0121L3.69142 17.8283L3.65109 17.8751H5.5275L9.955 13.1277L13.3577 17.645C13.4366 17.7496 13.5438 17.8294 13.6666 17.8751H17.7201C17.8203 17.8376 17.9103 17.7772 17.9831 17.6988C18.0559 17.6204 18.1093 17.5261 18.1393 17.4234C18.1692 17.3207 18.1747 17.2124 18.1554 17.1072C18.1361 17.0019 18.0925 16.9027 18.0281 16.8172L12.8819 9.98808L18.3489 4.12508H16.4698L12.0423 8.87341L8.63775 4.35608C8.55894 4.25118 8.45174 4.17102 8.32884 4.12508H4.27717ZM14.2505 16.5441L5.89509 5.45608H7.74584L16.1003 16.5432L14.2505 16.5441Z" fill="#3D1F0D"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_203_19">
+                          <rect width="22" height="22" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </a>
                 </div>
               </div>
 
-              <div class="vague-pic">
-                <img src="images/vague-choco.png" class="" alt="" />
+              <div>
+                <h2 class="text-3xl mb-4 text-[#7a3c18]">Pages</h2>
+                <div class="text-[#3D1F0D]">
+                  <a class="block" href="">Home</a>
+                  <a class="block" href="">Recipies</a>
+                  <a class="block" href="">About</a>
+                </div>
               </div>
 
-              <div class="absolute bottom-0 left-0 p-4">
-                <ul class="flex space-x-4">
-                  <li>© 2025 Chocolat Hub, LLC, All Rights Reserved.</li>
-                  <li>Terms & Conditions</li>
-                  <li>Privacy Policy</li>
-                </ul>
-              </div>
-
-              <div class="absolute bottom-0 right-0 p-4">
-                <ul class="flex space-x-4">
-                  <li>J-M</li>
-                  <li>Danni</li>
-                  <li>Sola</li>
-                  <li>Samuel</li>
-                  <li>Reda</li>
-                  <li>Mykyta</li>
-                </ul>
+              <div>
+                <h2 class="text-3xl mb-4 text-[#7a3c18]">Info</h2>
+                <div class="text-[#3D1F0D]">
+                  <a class="block" target="_blank" href="https://www.google.com/maps/place/Centre+de+Formation+2mille/@50.8255085,4.3361576,17z/data=!3m1!4b1!4m6!3m5!1s0x47c3c4424e23846d:0x96f406ef5208ebd9!8m2!3d50.8255051!4d4.3387325!16s%2Fg%2F1tj20q1k?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D">Adresse : Av. du Parc 89, 1060 Bruxelles</a>
+                  <a class="block" href="mailto:centredeformationCF2M@gmail.com">Email : centredeformationCF2M@gmail.com</a>
+                  <a class="block" href="tel:+32025390360">Tel : +32 02.53.90.36.0</a>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="vague-pic">
+          <img src="images/vague-choco.png" class="" alt="" />
+        </div>
+
+        <div class="absolute bottom-0 left-0 p-4">
+          <ul class="flex space-x-4">
+            <li>© 2025 Chocolat Hub, LLC, All Rights Reserved.</li>
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+          </ul>
+        </div>
+
+        <div class="absolute bottom-0 right-0 p-4">
+          <ul class="flex space-x-4">
+            <li>J-M</li>
+            <li>Danni</li>
+            <li>Sola</li>
+            <li>Samuel</li>
+            <li>Reda</li>
+            <li>Mykyta</li>
+          </ul>
         </div>
       </div>
     </section>
