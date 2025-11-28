@@ -13,38 +13,38 @@
   <body>
     <!-- NAVBAR FLOTANTE -->
     <nav
-      id="navbar-img"
-      aria-label="Navigation Principale"
-      class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
+            id="navbar-img"
+            aria-label="Navigation Principale"
+            class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
     >
       <div
-        class="bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-[rgba(255,255,255,0.2)] rounded-2xl px-6 py-3 shadow-2xl"
+              class="bg-[rgba(255,255,255,0.1)] bg-opacity-25 backdrop-blur-md border border-[rgba(255,255,255,0.2)] rounded-2xl px-6 py-3 shadow-2xl"
       >
         <ul class="flex items-center gap-8 text-xs">
           <li>
             <button
-              data-section="home"
-              onclick="document.getElementById('home').scrollIntoView({behavior:'smooth', block:'start'})"
-              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors]"
-              aria-current="page"
+                    data-section="home"
+                    onclick="document.getElementById('home').scrollIntoView({behavior:'smooth', block:'start'})"
+                    class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors]"
+                    aria-current="page"
             >
               <!-- Icône Accueil -->
               <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 12L12 5l9 7"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3 12L12 5l9 7"
                 />
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M5 10v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 10v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"
                 />
               </svg>
               <span>Accueil</span>
@@ -52,27 +52,27 @@
           </li>
           <li class="relative group">
             <button
-              data-section="recipes-section"
-              onclick="document.getElementById('recipes-section').scrollIntoView({behavior:'smooth', block:'start'})"
-              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+                    data-section="recipes-section"
+                    onclick="document.getElementById('recipes-section').scrollIntoView({behavior:'smooth', block:'start'})"
+                    class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
             >
               <!-- Icône Recettes -->
               <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4 19.5V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v12.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4 19.5V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v12.5"
                 />
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4 19.5A2.5 2.5 0 0 0 6.5 22H19"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4 19.5A2.5 2.5 0 0 0 6.5 22H19"
                 />
                 <line x1="8" y1="6.5" x2="8" y2="19" />
                 <line x1="12" y1="10" x2="16" y2="10" />
@@ -81,40 +81,40 @@
               <span>Recettes</span>
               <!-- Petite flèche -->
               <svg
-                class="ml-1 h-3 w-3"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 16 16"
+                      class="ml-1 h-3 w-3"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 16 16"
               >
                 <path
-                  d="M4 10l4-4 4 4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                        d="M4 10l4-4 4 4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
                 />
               </svg>
             </button>
-              <!-- Dropup -->
-              <div class="absolute left-1/2 -translate-x-1/2 bottom-full min-w-[170px] bg-white/80 shadow-xl rounded-xl border border-[rgba(77,44,22,0.20)] z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
-                  <ul class="py-2 text-[#4d2c16] text-sm">
-                      <li class="px-4 py-1 font-bold">Reda</li>
-                      <li><a href="pages/Reda/recetteReda1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
-                      <li class="px-4 py-1 font-bold mt-1">Sola</li>
-                      <li><a href="pages/Sola/Recette.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Mousse au chocolat</a></li>
-                      <li><a href="pages/Sola/Recette2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Brownies</a></li>
-                      <li class="px-4 py-1 font-bold mt-1">Jean-Michael</li>
-                      <li><a href="pages/JM/recette1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
-                      <li><a href="pages/JM/recette2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
-                      <li class="px-4 py-1 font-bold mt-1">Mykyta</li>
-                      <li><a href="recetteM1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
-                      <li><a href="recetteM2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
-                      <li class="px-4 py-1 font-bold mt-1">Daniel</li>
-                      <li><a href="" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
-                      <li class="px-4 py-1 font-bold mt-1">Samuël</li>
-                      <li><a href="pages/Sam/recettes3_bis.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
-                      <li><a href="pages/Sam/recettes3.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
-                  </ul>
-              </div>
+            <!-- Dropup intégré dans le li -->
+            <div class="absolute left-1/2 -translate-x-1/2 bottom-full min-w-[170px] bg-white/80 shadow-xl rounded-xl border border-[rgba(77,44,22,0.20)] z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
+              <ul class="py-2 text-[#4d2c16] text-sm">
+                <li class="px-4 py-1 font-bold">Reda</li>
+                <li><a href="pages/Reda/recetteReda1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
+                <li class="px-4 py-1 font-bold mt-1">Sola</li>
+                <li><a href="pages/Sola/Recette.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Mousse au chocolat</a></li>
+                <li><a href="pages/Sola/Recette2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Brownies</a></li>
+                <li class="px-4 py-1 font-bold mt-1">Jean-Michael</li>
+                <li><a href="pages/JM/recette1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
+                <li><a href="pages/JM/recette2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
+                <li class="px-4 py-1 font-bold mt-1">Mykyta</li>
+                <li><a href="recetteM1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
+                <li><a href="recetteM2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
+                <li class="px-4 py-1 font-bold mt-1">Daniel</li>
+                <li><a href="" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
+                <li class="px-4 py-1 font-bold mt-1">Samuël</li>
+                <li><a href="pages/Sam/recette1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Tiramisu au chocolat</a></li>
+                <li><a href="pages/Sam/recette2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Cannolis au chocolat</a></li>
+              </ul>
+            </div>
           </li>
           <li>
             <!--Icône Category-->
@@ -138,17 +138,17 @@
           </li>
           <li>
             <button
-              data-section="contact-section"
-              onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth', block:'start'})"
-              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+                    data-section="contact-section"
+                    onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth', block:'start'})"
+                    class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
             >
               <!-- Icône Contact -->
               <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
               >
                 <rect x="3" y="5" width="18" height="14" rx="2" />
                 <polyline points="3 7 12 13 21 7" />
@@ -158,16 +158,16 @@
           </li>
           <li>
             <button
-              onclick="window.location.href='login.html'"
-              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+                    onclick="window.location.href='login.html'"
+                    class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
             >
               <!-- Icône Connexion -->
               <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
               >
                 <circle cx="12" cy="8" r="4" />
                 <path d="M4 20c0-4 16-4 16 0" />
@@ -697,7 +697,10 @@
             </span>
             <div>
               <p class="text-[#b47b52] text-sm mb-0">Email</p>
-              <p class="text-[#3D1F0D] font-semibold">chocolathub@pro.com</p>
+              <a href="mailto:administration@cf2m.be" class="text-[#3D1F0D] font-semibold hover:underline">
+                administration@cf2m.be
+              </a>
+
             </div>
           </div>
           <!-- Téléphone -->
@@ -711,7 +714,10 @@
             </span>
             <div>
               <p class="text-[#b47b52] text-sm mb-0">Téléphone</p>
-              <p class="text-[#3D1F0D] font-semibold">+32 123 45 67 89</p>
+              <a href="https://wa.me/3225390360" target="_blank"  rel="noopener noreferrer"
+                 class="text-[#3D1F0D] font-semibold hover:underline">
+                +32 2 539 03 60
+              </a>
             </div>
           </div>
           <!-- Localisation -->
@@ -725,7 +731,12 @@
             </span>
             <div>
               <p class="text-[#b47b52] text-sm mb-0">Localisation</p>
-              <p class="text-[#3D1F0D] font-semibold">Bruxelles, Belgique</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Avenue+du+Parc+89,+1060+Bruxelles" target="_blank"
+                 rel="noopener noreferrer" class="text-[#3D1F0D] font-semibold hover:underline"
+              >
+                Avenue du Parc 89, 1060 Bruxelles
+              </a>
+
             </div>
           </div>
           <div class="mb-4">
@@ -733,7 +744,7 @@
           </div>
           <div class="flex gap-4 mb-4">
             <a
-              href="https://instagram.com/"
+              href="https://www.instagram.com/cf2m_bruxelles/"
               aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
@@ -745,7 +756,7 @@
               ></i>
             </a>
             <a
-              href="https://twitter.com/"
+              href="https://x.com/Cf2mBe"
               aria-label="Twitter"
               target="_blank"
               rel="noopener noreferrer"
@@ -757,7 +768,7 @@
               ></i>
             </a>
             <a
-              href="https://facebook.com/"
+              href="https://www.facebook.com/centredeformation2mille"
               aria-label="Facebook"
               target="_blank"
               rel="noopener noreferrer"
