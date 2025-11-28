@@ -23,10 +23,14 @@
         <ul class="flex items-center gap-8 text-xs">
           <li>
             <button
-                    data-section="home"
-                    onclick="document.getElementById('home').scrollIntoView({behavior:'smooth', block:'start'})"
-                    class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors]"
-                    aria-current="page"
+              data-section="home"
+              onclick="
+                document
+                  .getElementById('home')
+                  .scrollIntoView({ behavior: 'smooth', block: 'start' })
+              "
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors]"
+              aria-current="page"
             >
               <!-- Icône Accueil -->
               <svg
@@ -52,9 +56,13 @@
           </li>
           <li class="relative group">
             <button
-                    data-section="recipes-section"
-                    onclick="document.getElementById('recipes-section').scrollIntoView({behavior:'smooth', block:'start'})"
-                    class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+              data-section="recipes-section"
+              onclick="
+                document
+                  .getElementById('recipes-section')
+                  .scrollIntoView({ behavior: 'smooth', block: 'start' })
+              "
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
             >
               <!-- Icône Recettes -->
               <svg
@@ -81,45 +89,110 @@
               <span>Recettes</span>
               <!-- Petite flèche -->
               <svg
-                      class="ml-1 h-3 w-3"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      viewBox="0 0 16 16"
+                class="ml-1 h-3 w-3"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 16 16"
               >
                 <path
-                        d="M4 10l4-4 4 4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                  d="M4 10l4-4 4 4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
               </svg>
             </button>
-            <!-- Dropup intégré dans le li -->
-            <div class="absolute left-1/2 -translate-x-1/2 bottom-full min-w-[170px] bg-white/80 shadow-xl rounded-xl border border-[rgba(77,44,22,0.20)] z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
+            <!-- Dropup -->
+            <div
+              class="absolute left-1/2 -translate-x-1/2 bottom-full min-w-[170px] bg-white/80 shadow-xl rounded-xl border border-[rgba(77,44,22,0.20)] z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition"
+            >
               <ul class="py-2 text-[#4d2c16] text-sm">
                 <li class="px-4 py-1 font-bold">Reda</li>
-                <li><a href="pages/Reda/recetteReda1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
+                <li>
+                  <a
+                    href="pages/Reda/recetteReda1.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 1</a
+                  >
+                </li>
                 <li class="px-4 py-1 font-bold mt-1">Sola</li>
-                <li><a href="pages/Sola/Recette.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Mousse au chocolat</a></li>
-                <li><a href="pages/Sola/Recette2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Brownies</a></li>
+                <li>
+                  <a
+                    href="pages/Sola/Recette.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 1</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="pages/Sola/Recette2.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 2</a
+                  >
+                </li>
                 <li class="px-4 py-1 font-bold mt-1">Jean-Michael</li>
-                <li><a href="pages/JM/recette1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
-                <li><a href="pages/JM/recette2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
+                <li>
+                  <a
+                    href="pages/JM/recette1.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 1</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="pages/JM/recette2.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 2</a
+                  >
+                </li>
                 <li class="px-4 py-1 font-bold mt-1">Mykyta</li>
-                <li><a href="recetteM1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
-                <li><a href="recetteM2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 2</a></li>
+                <li>
+                  <a
+                    href="recetteM1.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 1</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="recetteM2.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 2</a
+                  >
+                </li>
                 <li class="px-4 py-1 font-bold mt-1">Daniel</li>
-                <li><a href="" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Recette 1</a></li>
+                <li>
+                  <a href="" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 1</a
+                  >
+                </li>
                 <li class="px-4 py-1 font-bold mt-1">Samuël</li>
-                <li><a href="pages/Sam/recette1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Tiramisu au chocolat</a></li>
-                <li><a href="pages/Sam/recette2.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded">Cannolis au chocolat</a></li>
+                <li>
+                  <a
+                    href="pages/Sam/recettes3_bis.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 1</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="pages/Sam/recettes3.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 2</a
+                  >
+                </li>
               </ul>
             </div>
           </li>
           <li>
             <!--Icône Category-->
             <button
-              onclick="window.location.href='category.html'"
+              data-section="contact-section"
+              onclick="
+                document
+                  .getElementById('contact-section')
+                  .scrollIntoView({ behavior: 'smooth', block: 'start' })
+              "
               class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
             >
               <svg
@@ -158,16 +231,16 @@
           </li>
           <li>
             <button
-                    onclick="window.location.href='login.html'"
-                    class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+              onclick="window.location.href = 'login.html'"
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
             >
               <!-- Icône Connexion -->
               <svg
-                      class="h-4 w-4"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      viewBox="0 0 24 24"
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
               >
                 <circle cx="12" cy="8" r="4" />
                 <path d="M4 20c0-4 16-4 16 0" />
@@ -697,10 +770,7 @@
             </span>
             <div>
               <p class="text-[#b47b52] text-sm mb-0">Email</p>
-              <a href="mailto:administration@cf2m.be" class="text-[#3D1F0D] font-semibold hover:underline">
-                administration@cf2m.be
-              </a>
-
+              <p class="text-[#3D1F0D] font-semibold">chocolathub@pro.com</p>
             </div>
           </div>
           <!-- Téléphone -->
@@ -714,10 +784,7 @@
             </span>
             <div>
               <p class="text-[#b47b52] text-sm mb-0">Téléphone</p>
-              <a href="https://wa.me/3225390360" target="_blank"  rel="noopener noreferrer"
-                 class="text-[#3D1F0D] font-semibold hover:underline">
-                +32 2 539 03 60
-              </a>
+              <p class="text-[#3D1F0D] font-semibold">+32 123 45 67 89</p>
             </div>
           </div>
           <!-- Localisation -->
@@ -731,12 +798,7 @@
             </span>
             <div>
               <p class="text-[#b47b52] text-sm mb-0">Localisation</p>
-              <a href="https://www.google.com/maps/search/?api=1&query=Avenue+du+Parc+89,+1060+Bruxelles" target="_blank"
-                 rel="noopener noreferrer" class="text-[#3D1F0D] font-semibold hover:underline"
-              >
-                Avenue du Parc 89, 1060 Bruxelles
-              </a>
-
+              <p class="text-[#3D1F0D] font-semibold">Bruxelles, Belgique</p>
             </div>
           </div>
           <div class="mb-4">
@@ -744,7 +806,7 @@
           </div>
           <div class="flex gap-4 mb-4">
             <a
-              href="https://www.instagram.com/cf2m_bruxelles/"
+              href="https://instagram.com/"
               aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
@@ -756,7 +818,7 @@
               ></i>
             </a>
             <a
-              href="https://x.com/Cf2mBe"
+              href="https://twitter.com/"
               aria-label="Twitter"
               target="_blank"
               rel="noopener noreferrer"
@@ -768,7 +830,7 @@
               ></i>
             </a>
             <a
-              href="https://www.facebook.com/centredeformation2mille"
+              href="https://facebook.com/"
               aria-label="Facebook"
               target="_blank"
               rel="noopener noreferrer"
@@ -785,14 +847,17 @@
     </section>
 
     <section id="footer-section" class="relative z-1000">
-      <div class="bg-[#f7efe6] text-white py-4 relative h-[500px]">
+      <div class="bg-[#f7efe6] text-white py-4 relative h-[700px]">
         <div class="container px-[80px] h-9x">
           <div class="flex justify-between items-center">
-            <div class="flex justify-between gap-20 my-20">
+            <div class="flex justify-between gap-20 my-[85px]">
               <div>
                 <h2 class="text-3xl mb-4 text-[#7a3c18]">Follow us</h2>
                 <div class="flex gap-3 relative z-10">
-                  <a href="#">
+                  <a
+                    href="https://www.instagram.com/cf2m_bruxelles/"
+                    target="_blank"
+                  >
                     <svg
                       width="24px"
                       height="24px"
@@ -806,7 +871,10 @@
                       />
                     </svg>
                   </a>
-                  <a href="#">
+                  <a
+                    href="https://www.facebook.com/centredeformation2mille/?locale=fr_FR"
+                    target="_blank"
+                  >
                     <svg
                       width="24px"
                       height="24px"
@@ -903,19 +971,42 @@
           <img src="images/vague-choco.png" class="" alt="" />
         </div>
         <div class="absolute bottom-0 left-0 p-4">
-          <ul class="flex space-x-4">
+          <ul class="flex space-x-4 sm:text-[12px]">
             <li>© 2025 Chocolat Hub, LLC, All Rights Reserved.</li>
             <li>Terms & Conditions</li>
             <li>Privacy Policy</li>
           </ul>
         </div>
-        <div class="absolute bottom-0 right-0 p-4">
+        <div
+          class="absolute bottom-0 right-0 p-4 lg:text-[14px] sm:text-[12px]"
+        >
           <ul class="flex space-x-4">
             <li>J-M</li>
             <li>Danni</li>
-            <li>Sola</li>
-            <li>Samuel</li>
-            <li>Reda</li>
+            <li>
+              <a
+                href="https://solakabuta.com"
+                target="_blank"
+                class="hover:text-[#44AF69]"
+                >Sola</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://portfolio-sam-beige.vercel.app/"
+                target="_blank"
+                class="hover:text-[#9C89B8]"
+                >Samuel</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://portfolio-git-main-redasnkrs-projects.vercel.app/"
+                target="_blank"
+                class="hover:text-[#4464AD]"
+                >Reda</a
+              >
+            </li>
             <li>Mykyta</li>
           </ul>
         </div>

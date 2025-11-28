@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chocolat Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="images/tablette_chocolat1.ico" type="image/png" />
     <!-- Import Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -87,6 +87,53 @@
       </div>
     </div>
 
+    <nav
+      class="fixed top-0 left-0 w-full p-4 z-[1000] bg-transparent"
+      id="navbar"
+    >
+      <div class="flex justify-end items-center px-6 w-full">
+        <div class="flex items-center space-x-3">
+          <button
+            id="login-btn"
+            class="text-[#4d2c16] hover:text-[#f9bf29] transition p-4 rounded-full hover:border-[#f9bf29] bg-white/70 backdrop-blur-sm"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+
+          <button
+            id="menu-burger-btn"
+            class="text-[#4d2c16] hover:text-[#f9bf29] transition bg-white/70 backdrop-blur-sm p-4 rounded-full"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
     <!-- NAVBAR FLOTANTE -->
     <nav
       id="navbar-img"
@@ -97,13 +144,12 @@
         class="bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-[rgba(255,255,255,0.2)] rounded-2xl px-6 py-3 shadow-2xl"
       >
         <ul class="flex items-center gap-8 text-xs">
+          <!-- Exemple d'éléments - duplique à volonté -->
           <li>
             <button
-              data-section="home"
               onclick="document.getElementById('home').scrollIntoView({behavior:'smooth', block:'start'})"
-              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors]"
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[rgba(255,255,255,0.08)] focus:bg-[rgba(255,255,255,0.08)]"
               aria-current="page"
-              href="/index.html"
             >
               <!-- Icône Accueil -->
               <svg
@@ -125,13 +171,16 @@
                 />
               </svg>
               <span>Accueil</span>
+              <!-- Marqueur actif (optionnel, visible si current) -->
+              <span
+                class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full bg-white"
+              ></span>
             </button>
           </li>
-          <li class="relative group">
+          <li>
             <button
-              data-section="recipes-section"
               onclick="document.getElementById('recipes-section').scrollIntoView({behavior:'smooth', block:'start'})"
-              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[rgba(255,255,255,0.08)] focus:bg-[rgba(255,255,255,0.08)]"
             >
               <!-- Icône Recettes -->
               <svg
@@ -156,110 +205,33 @@
                 <line x1="12" y1="14" x2="16" y2="14" />
               </svg>
               <span>Recettes</span>
-              <!-- Petite flèche -->
+            </button>
+          </li>
+          <li>
+            <button
+              onclick="document.getElementById('category-section').scrollIntoView({behavior:'smooth', block:'start'})"
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[rgba(255,255,255,0.08)] focus:bg-[rgba(255,255,255,0.08)]"
+            >
+              <!-- Icône Catégories -->
               <svg
-                class="ml-1 h-3 w-3"
+                class="h-4 w-4"
+                viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
-                viewBox="0 0 16 16"
               >
-                <path
-                  d="M4 10l4-4 4 4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
               </svg>
+              <span>Catégories</span>
             </button>
-            <!-- Dropup -->
-            <div
-              class="absolute left-1/2 -translate-x-1/2 bottom-full min-w-[170px] bg-white/80 shadow-xl rounded-xl border border-[rgba(77,44,22,0.20)] z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition"
-            >
-              <ul class="py-2 text-[#4d2c16] text-sm">
-                <li class="px-4 py-1 font-bold">Reda</li>
-                <li>
-                  <a
-                    href="pages/Reda/recetteReda1.html"
-                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
-                    >Recette 1</a
-                  >
-                </li>
-                <li class="px-4 py-1 font-bold mt-1">Sola</li>
-                <li>
-                  <a
-                    href="/pages/Sola/Recette.html"
-                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
-                    >Recette 1</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="/pages/Sola/Recette2.html"
-                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
-                    >Recette 2</a
-                  >
-                </li>
-                <li class="px-4 py-1 font-bold mt-1">Jean-Michael</li>
-                <li>
-                  <a
-                    href="/pages/JM/recette1.html"
-                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
-                    >Recette 1</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="pages/JM/recette2.html"
-                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
-                    >Recette 2</a
-                  >
-                </li>
-                <li class="px-4 py-1 font-bold mt-1">Mykyta</li>
-                <li>
-                  <a
-                    href="recetteM1.html"
-                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
-                    >Recette 1</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="recetteM2.html"
-                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
-                    >Recette 2</a
-                  >
-                </li>
-                <li class="px-4 py-1 font-bold mt-1">Daniel</li>
-                <li>
-                  <a href="" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
-                    >Recette 1</a
-                  >
-                </li>
-                <li class="px-4 py-1 font-bold mt-1">Samuël</li>
-                <li>
-                  <a
-                    href="pages/Sam/recettes3_bis.html"
-                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
-                    >Recette 1</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="pages/Sam/recettes3.html"
-                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
-                    >Recette 2</a
-                  >
-                </li>
-              </ul>
-            </div>
           </li>
           <li>
-            <!-- click on the button then go index and scroll into the section contact -->
             <button
-              data-section="contact-section"
-              onclick="window.location.href='/index.html'"
               onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth', block:'start'})"
-              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[rgba(255,255,255,0.08)] focus:bg-[rgba(255,255,255,0.08)]"
             >
               <!-- Icône Contact -->
               <svg
@@ -275,37 +247,17 @@
               <span>Contact</span>
             </button>
           </li>
-          <li>
-            <button
-              onclick="window.location.href='/login.html'"
-              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
-            >
-              <!-- Icône Connexion -->
-              <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 20c0-4 16-4 16 0" />
-              </svg>
-              <span>Connexion</span>
-            </button>
-          </li>
         </ul>
       </div>
     </nav>
-
+    <h1 class="text-9xl text-center text-[#2B1B12] mb-8">Choco Wanta</h1>
     <!--Top section recette -->
-    <h1 class="text-9xl mt-10 text-center text-[#2B1B12] mb-8">Choco Wanta</h1>
     <section class="mt-20 mb-20 px-20">
       <div
         class="grid grid-cols-1 gap-10 md:grid-cols-1 sm:grid-cols-1 lg:grid-cols-2"
       >
         <div class="">
-          <img src="../../images/fondant.jpg" class="" alt="" />
+          <img src="./images/fondant.jpg" class="" alt="" />
         </div>
         <div class="">
           <p class="w-3/4 text-3xl text-left">
@@ -333,11 +285,7 @@
       >
         <div class="flex">
           <div>
-            <img
-              src="../../images/tablette.png"
-              class="w-16 h-16 mr-4"
-              alt=""
-            />
+            <img src="./images/tablette.png" class="w-16 h-16 mr-4" alt="" />
           </div>
           <div>
             <h3 class="text-4xl">Chocolat</h3>
@@ -346,7 +294,7 @@
         </div>
         <div class="flex">
           <div class="px-5">
-            <img src="../../images/clock.png" alt="" />
+            <img src="./images/clock.png" alt="" />
           </div>
           <div>
             <h3 class="text-4xl">Temps Prep.</h3>
@@ -355,7 +303,7 @@
         </div>
         <div class="flex">
           <div class="px-5">
-            <img src="../../images/people.png" alt="" />
+            <img src="./images/people.png" alt="" />
           </div>
           <div>
             <h3 class="text-4xl">Portions</h3>
@@ -371,49 +319,49 @@
         <h2 class="text-5xl mb-10">Ingrédients :</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div class="flex">
-            <img src="../../images/carre_chocolat.png" alt="" />
+            <img src="./images/carre_chocolat.png" alt="" />
             <div>
               <p class="pt-[100%] pl-2 font-semibold">200gr</p>
               <p class="pl-1">Chocolat noir</p>
             </div>
           </div>
           <div class="flex">
-            <img src="../../images/carre_beurre.png" alt="" />
+            <img src="./images/carre_beurre.png" alt="" />
             <div>
               <p class="pt-[111px] pl-2 font-semibold">100gr</p>
               <p class="pl-1">Beurre</p>
             </div>
           </div>
           <div class="flex">
-            <img src="../../images/carre_farine.png" alt="" />
+            <img src="./images/carre_farine.png" alt="" />
             <div>
               <p class="pt-[111px] pl-2 font-semibold">50gr</p>
               <p class="pl-1">Farine</p>
             </div>
           </div>
           <div class="flex">
-            <img src="../../images/carre_sucre.png" alt="" />
+            <img src="./images/carre_sucre.png" alt="" />
             <div>
               <p class="pt-[111px] pl-2 font-semibold">100gr</p>
               <p class="pl-1">Sucre</p>
             </div>
           </div>
           <div class="flex">
-            <img src="../../images/carre_sel.png" alt="" />
+            <img src="./images/carre_sel.png" alt="" />
             <div>
               <p class="pt-[111px] pl-2 font-semibold">50gr</p>
               <p class="pl-1">Sel</p>
             </div>
           </div>
           <div class="flex">
-            <img src="../../images/carre_vanille.png" alt="" />
+            <img src="./images/carre_vanille.png" alt="" />
             <div>
               <p class="pt-[111px] pl-2 font-semibold">1 sachet</p>
               <p class="pl-1">Vanille</p>
             </div>
           </div>
           <div class="flex">
-            <img src="../../images/carre_oeufs.png" alt="" />
+            <img src="./images/carre_oeufs.png" alt="" />
             <div>
               <p class="pt-[111px] pl-2 font-semibold">4</p>
               <p class="pl-1">Œufs</p>
@@ -465,301 +413,10 @@
       </div>
     </section>
     <!--End Steps-->
-    <!-- Comments section -->
 
-    <section class="px-20 mt-20 mb-20">
-      <h2 class="text-5xl mb-10">Commentaires :</h2>
-      <div class="flex flex-col gap-5">
-        <div class="border border-gray-300 rounded-lg p-4">
-          <p class="text-sm text-gray-500 pb-1">Publié le 12/04/2024</p>
-          <div class="flex pb-3">
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-          </div>
-          <p class="text-lg">
-            <span class="font-bold">Alice:</span> J'ai adoré cette recette ! Le
-            fondant était parfait, merci !
-          </p>
-        </div>
-        <div class="border border-gray-300 rounded-lg p-4">
-          <p class="text-sm text-gray-500 pb-1">Publié le 12/04/2024</p>
-          <div class="flex pb-3">
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-          </div>
-          <p class="text-lg">
-            <span class="font-bold">Bob:</span> Simple et délicieux. Je le
-            referai sans hésiter.
-          </p>
-        </div>
-        <div class="border border-gray-300 rounded-lg p-4">
-          <p class="text-sm text-gray-500 pb-1">Publié le 12/04/2024</p>
-          <div class="flex pb-3">
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-            <svg
-              class="hover:text-yellow-400 hover:fill-yellow-400"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-star-icon lucide-star"
-            >
-              <path
-                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-              />
-            </svg>
-          </div>
-          <p class="text-lg">
-            <span class="font-bold">Claire:</span> Un vrai régal pour les
-            amateurs de chocolat !
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- End comments  -->
     <!--Footer (reda)-->
-
-    <section id="footer-section" class="relative z-1000">
-      <div class="bg-[#f7efe6] text-white py-4 relative h-[500px]">
+    <footer id="" class="relative left-0 bottom-0 w-full z-1000">
+      <div class="bg-[#f7efe6] text-white py-4 relative h-[750px]">
         <div class="container px-[80px] h-9x">
           <div class="flex justify-between items-center">
             <div class="flex justify-between gap-20 my-20">
@@ -873,8 +530,8 @@
             </div>
           </div>
         </div>
-        <div class="vague-pic" class="">
-          <img src="../../images/vague-choco.png" class="" alt="" />
+        <div class="vague-pic">
+          <img src="images/vague-choco.png" class="" alt="" />
         </div>
         <div class="absolute bottom-0 left-0 p-4">
           <ul class="flex space-x-4">
@@ -886,15 +543,15 @@
         <div class="absolute bottom-0 right-0 p-4">
           <ul class="flex space-x-4">
             <li>J-M</li>
+            <li>mi</li>
             <li>Danni</li>
             <li>Sola</li>
             <li>Samuel</li>
             <li>Reda</li>
-            <li>Mykyta</li>
           </ul>
         </div>
       </div>
-    </section>
+    </footer>
 
     <script src="js/script.js"></script>
   </body>
