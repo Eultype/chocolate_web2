@@ -351,6 +351,7 @@ body.animation-triggered #cacao_noir {
     opacity: 0.4;
 }
 
+/* Icône de Scroll */
 .scroll {
     display: none;
     position: absolute;
@@ -452,12 +453,31 @@ body.page-turn-right {
     }
 }
 
+/* Animation ingrédients */
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+    -webkit-animation: marquee 10s linear infinite;
+    animation: marquee 10s linear infinite;
+    will-change: transform;
+}
+.backdrop-blur-extra-light {
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+}
+.marquee-container {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
 
 /* === Recette 2 === */
 /* Image */
 .recette-sam-4 {
     background-image:
-            linear-gradient(to bottom, #f7efe6 600px, rgba(247, 239, 230, 0) 800px),
+            linear-gradient(to bottom, #f7efe6 650px, rgba(247, 239, 230, 0) 850px),
             linear-gradient(rgba(255,255,255,0.60), rgba(255,255,255,0.60)),
             url('../images/papier_carreaux.png');
     background-repeat: no-repeat, no-repeat, repeat;
