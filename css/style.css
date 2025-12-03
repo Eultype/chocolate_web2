@@ -21,6 +21,10 @@ h6 {
     font-family: "Pacifico", cursive;
 }
 
+#home {
+    height: 100vh;
+}
+
 #initial-container {
     top: 0;
     left: 0;
