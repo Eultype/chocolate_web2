@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="images/tablette_chocolat1.ico" type="image/png" />
   <script src="https://unpkg.com/lucide@latest"></script>
+
   <style>
     .modal-enter {
       opacity: 0;
@@ -74,8 +75,9 @@
   </style>
 </head>
 
-<body class="overflow-x-hidden min-h-screen relative">
-  <nav
+<body class="overflow-x-hidden min-h-screen relative">  
+<!-- NAVBAR FLOTANTE -->
+    <nav
             id="navbar-img"
             aria-label="Navigation Principale"
             class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
@@ -92,7 +94,7 @@
                   .getElementById('home')
                   .scrollIntoView({ behavior: 'smooth', block: 'start' })
               "
-              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors]"
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[#402917] hover:text-white"
               aria-current="page"
             >
               <!-- Icône Accueil -->
@@ -114,7 +116,7 @@
                         d="M5 10v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"
                 />
               </svg>
-              <span>Accueil</span>
+              <span><a href="index.html">Accueil</a></span>
             </button>
           </li>
           <li class="relative group">
@@ -123,9 +125,9 @@
               onclick="
                 document
                   .getElementById('recipes-section')
-                  .scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  
               "
-              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[#402917] hover:text-white"
             >
               <!-- Icône Recettes -->
               <svg
@@ -251,7 +253,7 @@
             <!--Icône Category-->
             <button
               onclick="window.location.href='category.html'"
-              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[#402917] hover:text-white"
             >
               <svg
                 class="h-4 w-4"
@@ -270,8 +272,8 @@
           <li>
             <button
                     data-section="contact-section"
-                    onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth', block:'start'})"
-                    class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+                    onclick="window.location.href = 'index.html#contact-section'"
+                    class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[#402917] hover:text-white"
             >
               <!-- Icône Contact -->
               <svg
@@ -290,7 +292,7 @@
           <li>
             <button
               onclick="window.location.href = 'login.html'"
-              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[#402917] hover:text-white"
             >
               <!-- Icône Connexion -->
               <svg
