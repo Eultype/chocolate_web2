@@ -12,7 +12,8 @@ abstract class AbstractCategory
     private $category_id;
     public function setCategoryId(int $category_id): self
     {
-    
+        $this->category_id = $category_id;
+        return $this;
     }
 
     /**
@@ -21,7 +22,7 @@ abstract class AbstractCategory
      */
     public function getCategoryTitle(): string
     {
-        
+        return $this->category_title;
     }
 
     /**
@@ -31,7 +32,8 @@ abstract class AbstractCategory
      */
     public function setCategoryTitle(string $category_title): self
     {
-        
+        $this->category_title = $category_title;
+        return $this;
     }
 
     /**
@@ -40,7 +42,7 @@ abstract class AbstractCategory
      */
     public function getCategorySlug(): string
     {
-        
+        return $this->category_slug;
     }
 
     /**
@@ -52,7 +54,8 @@ abstract class AbstractCategory
     
     public function setCategorySlug(string $category_slug): self
     {
-        
+        $this->category_slug = $category_slug;
+        return $this;
     }
 
     /**
@@ -61,7 +64,7 @@ abstract class AbstractCategory
      */
     public function getCategoryDesc(): ?string
     {
-        
+        return $this->category_desc;
     }
 
     /**
@@ -71,6 +74,7 @@ abstract class AbstractCategory
      */
     public function setCategoryDesc(?string $category_desc): self
     {
-        
+        $this->category_desc = $category_desc;
+        return $this;
     }
 }
