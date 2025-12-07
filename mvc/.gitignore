@@ -1,4 +1,4 @@
 # PHPStorm
 .idea
 # Config File
-config.php
+config.dev.php
