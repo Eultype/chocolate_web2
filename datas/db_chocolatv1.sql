@@ -166,7 +166,7 @@ CREATE INDEX `fk_ingredients_has_recipes_ingredients1_idx` ON `db_chocolat`.`ing
 DROP TABLE IF EXISTS `db_chocolat`.`category` ;
 
 CREATE TABLE IF NOT EXISTS `db_chocolat`.`category` (
-  `category_id` INT UNSIGNED NULL AUTO_INCREMENT,
+  `category_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `category_title` VARCHAR(100) NOT NULL,
   `category_slug` VARCHAR(105) NOT NULL,
   `category_desc` VARCHAR(600) NULL,

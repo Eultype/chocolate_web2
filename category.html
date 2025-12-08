@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="images/tablette_chocolat1.ico" type="image/png" />
   <script src="https://unpkg.com/lucide@latest"></script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 683cb9ecc9f3a51bb8e6751e2ff213cb60261aad
   <style>
     .modal-enter {
       opacity: 0;
@@ -74,6 +78,7 @@
   </style>
 </head>
 
+<<<<<<< HEAD
 <body class="overflow-x-hidden min-h-screen relative">
   <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40">
     <div
@@ -138,12 +143,299 @@
         <div class="img-wrap">
           <img id="modal-img" src="" alt="Recipe" class="w-full h-full object-cover" />
         </div>
+=======
+<body class="overflow-x-hidden min-h-screen relative">  
+<!-- NAVBAR FLOTANTE -->
+    <nav
+            id="navbar-img"
+            aria-label="Navigation Principale"
+            class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
+    >
+      <div
+              class="bg-[rgba(255,255,255,0.1)] bg-opacity-25 backdrop-blur-md border border-[rgba(255,255,255,0.2)] rounded-2xl px-6 py-3 shadow-2xl"
+      >
+        <ul class="flex items-center gap-8 text-xs">
+          <li>
+            <button
+              data-section="home"
+              onclick="
+                document
+                  .getElementById('home')
+                  .scrollIntoView({ behavior: 'smooth', block: 'start' })
+              "
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[#402917] hover:text-white"
+              aria-current="page"
+            >
+              <!-- Icône Accueil -->
+              <svg
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+              >
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3 12L12 5l9 7"
+                />
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 10v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"
+                />
+              </svg>
+              <span><a href="index.html">Accueil</a></span>
+            </button>
+          </li>
+          <li class="relative group">
+            <button
+              data-section="recipes-section"
+              onclick="
+                document
+                  .getElementById('recipes-section')
+                  
+              "
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[#402917] hover:text-white"
+            >
+              <!-- Icône Recettes -->
+              <svg
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+              >
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4 19.5V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v12.5"
+                />
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4 19.5A2.5 2.5 0 0 0 6.5 22H19"
+                />
+                <line x1="8" y1="6.5" x2="8" y2="19" />
+                <line x1="12" y1="10" x2="16" y2="10" />
+                <line x1="12" y1="14" x2="16" y2="14" />
+              </svg>
+              <span>Recettes</span>
+              <!-- Petite flèche -->
+              <svg
+                class="ml-1 h-3 w-3"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M4 10l4-4 4 4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <!-- Dropup -->
+            <div
+              class="absolute left-1/2 -translate-x-1/2 bottom-full min-w-[170px] bg-white/80 shadow-xl rounded-xl border border-[rgba(77,44,22,0.20)] z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition"
+            >
+              <ul class="py-2 text-[#4d2c16] text-sm">
+                <li class="px-4 py-1 font-bold">Reda</li>
+                <li>
+                  <a
+                    href="pages/Reda/recetteReda1.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 1</a
+                  >
+                </li>
+                <li class="px-4 py-1 font-bold mt-1">Sola</li>
+                <li>
+                  <a
+                    href="pages/Sola/Recette.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Mousse au chocolat</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="pages/Sola/Recette2.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Brownies</a
+                  >
+                </li>
+                <li class="px-4 py-1 font-bold mt-1">Jean-Michael</li>
+                <li>
+                  <a
+                    href="pages/JM/gateauPralineChocolatNoisette.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Gâteau praliné chocolat-noisette</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="pages/JM/recette2.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 2</a
+                  >
+                </li>
+                <li class="px-4 py-1 font-bold mt-1">Mykyta</li>
+                <li>
+                  <a
+                    href="pages/Mykyta/recetteM1.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 1</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="pages/Mykyta/recetteM2.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 2</a
+                  >
+                </li>
+                <li class="px-4 py-1 font-bold mt-1">Daniel</li>
+                <li>
+                  <a href="pages/Daniel/recette1.html" class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Recette 1</a
+                  >
+                </li>
+                <li class="px-4 py-1 font-bold mt-1">Samuël</li>
+                <li>
+                  <a
+                    href="pages/Sam/recette1.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Tiramisu au chocolat</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="pages/Sam/recette2.html"
+                    class="block px-4 py-1 hover:bg-[#fbe7cd] rounded"
+                    >Cannoli aux chocolat</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <!--Icône Category-->
+            <button
+              onclick="window.location.href='category.html'"
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[#402917] hover:text-white"
+            >
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+              </svg>
+              <span>Category</span>
+          </li>
+          <li>
+            <button
+                    data-section="contact-section"
+                    onclick="window.location.href = 'index.html#contact-section'"
+                    class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[#402917] hover:text-white"
+            >
+              <!-- Icône Contact -->
+              <svg
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+              >
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <polyline points="3 7 12 13 21 7" />
+              </svg>
+              <span>Contact</span>
+            </button>
+          </li>
+          <li>
+            <button
+              onclick="window.location.href = 'login.html'"
+              class="relative flex items-center gap-2 px-3 py-2 rounded-xl transition-colors hover:bg-[#402917] hover:text-white"
+            >
+              <!-- Icône Connexion -->
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 20c0-4 16-4 16 0" />
+              </svg>
+              <span>Connexion</span>
+            </button>
+          </li>
+        </ul>
+>>>>>>> 683cb9ecc9f3a51bb8e6751e2ff213cb60261aad
+      </div>
+
+<<<<<<< HEAD
+      <div class="w-full md:w-1/2 modal-right p-8 md:p-12 text-[#4d2c16] overflow-y-auto">
+        <span id="modal-tag" class="text-xs font-bold uppercase tracking-wider text-[#d4a15a] mb-2 block"></span>
+        <h2 id="modal-title" class="text-3xl md:text-4xl font-serif font-bold mb-4 text-[#7a3c18]"></h2>
+
+=======
+  <header class="pt-20 pb-10 px-6 text-center">
+    <h1 class="text-5xl md:text-7xl font-medium text-[#7a3c18] mb-4">L'Atelier Recettes</h1>
+    <p class="text-xl opacity-80 max-w-2xl mx-auto">
+      Explorez notre collection complète. Filtrez par catégorie et laissez-vous tenter.
+    </p>
+  </header>
+
+  <section class="px-6 mb-10">
+    <div class="flex flex-wrap justify-center gap-4" id="filter-container">
+      <button onclick="filterRecipes('all')"
+        class="filter-btn active bg-[#4d2c16] text-[#f7efe6] px-6 py-2 rounded-full font-medium transition hover:shadow-lg ring-2 ring-offset-2 ring-[#4d2c16]">Tout</button>
+      <button onclick="filterRecipes('gateau')"
+        class="filter-btn bg-white text-[#4d2c16] px-6 py-2 rounded-full font-medium transition hover:bg-[#fbe7cd] hover:shadow-lg">Gâteaux</button>
+      <button onclick="filterRecipes('mousse')"
+        class="filter-btn bg-white text-[#4d2c16] px-6 py-2 rounded-full font-medium transition hover:bg-[#fbe7cd] hover:shadow-lg">Mousses</button>
+      <button onclick="filterRecipes('boisson')"
+        class="filter-btn bg-white text-[#4d2c16] px-6 py-2 rounded-full font-medium transition hover:bg-[#fbe7cd] hover:shadow-lg">Boissons</button>
+      <button onclick="filterRecipes('glace')"
+        class="filter-btn bg-white text-[#4d2c16] px-6 py-2 rounded-full font-medium transition hover:bg-[#fbe7cd] hover:shadow-lg">Glacé</button>
+    </div>
+  </section>
+
+  <section class="px-6 md:px-20 pb-32">
+    <div id="recipes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    </div>
+  </section>
+
+
+  <div id="recipe-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-[#2d1b14]/60 backdrop-blur-sm" onclick="closeModal()"></div>
+
+    <div
+      class="bg-[#f7efe6] w-full max-w-4xl rounded-3xl shadow-2xl relative z-10 flex flex-col md:flex-row modal-inner overflow-hidden">
+      <button onclick="closeModal()"
+        class="absolute top-4 right-4 bg-white/70 p-2 rounded-full hover:bg-white transition z-20">
+        <i data-lucide="x" class="w-6 h-6 text-[#4d2c16]"></i>
+      </button>
+
+      <div class="w-full md:w-1/2 modal-left">
+        <div class="img-wrap">
+          <img id="modal-img" src="" alt="Recipe" class="w-full h-full object-cover" />
+        </div>
       </div>
 
       <div class="w-full md:w-1/2 modal-right p-8 md:p-12 text-[#4d2c16] overflow-y-auto">
         <span id="modal-tag" class="text-xs font-bold uppercase tracking-wider text-[#d4a15a] mb-2 block"></span>
         <h2 id="modal-title" class="text-3xl md:text-4xl font-serif font-bold mb-4 text-[#7a3c18]"></h2>
 
+>>>>>>> 683cb9ecc9f3a51bb8e6751e2ff213cb60261aad
         <div class="flex gap-6 text-sm mb-6 border-y border-[#4d2c16]/10 py-4">
           <div class="flex items-center gap-2">
             <i data-lucide="clock" class="w-4 h-4"></i>
@@ -169,7 +461,11 @@
 
         <div class="mb-8">
           <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+<<<<<<< HEAD
             <i data-lucide="chef-hat" class="w-4 h-4"></i> Préparation
+=======
+            <i data-lucide="chef-hat" class="w-4 h-4"></i> Description
+>>>>>>> 683cb9ecc9f3a51bb8e6751e2ff213cb60261aad
           </h3>
           <p id="modal-desc" class="text-sm leading-relaxed opacity-90 whitespace-pre-line"></p>
         </div>
@@ -295,6 +591,7 @@
         id: 1,
         line: "pages/Reda/recetteReda1.html",
         category: "gateau",
+<<<<<<< HEAD
         title: "Choco Wanta",
         image: "images/fondant.jpg",
         time: "30 min",
@@ -302,6 +599,15 @@
         servings: "4 pers",
         ingredients: ["200g Chocolat Noir 95%", "100g Beurre", "50g Farine", "100g Sucre", "50g Sel", "4 Oeufs", "1 sachet Vanille"],
         desc: "1. Préchauffe ton four à 180°C (chaleur traditionnelle).\n2. Dans une casserole ou au micro-ondes, fais fondre le chocolat noir avec le beurre...\n8. Laisse reposer 1 minute avant de démouler."
+=======
+        title: "Brownies au chocolat ultra fondants",
+        image: "images/Brownies Hero.jpg",
+        time: "30-40 min",
+        level: "Facile",
+        servings: "4 pers",
+        ingredients: ["200g de chocolat noir (70% de cacao), haché", "175g de beurre non salé, coupé en cubes","3 gros œufs","275g de sucre en poudre","85g de farine tout usage","40g de cacao en poudre","1 c. à café d'extrait de vanille","½ c. à café de sel"],
+        desc: "Riche, décadent et incroyablement fondant — ces brownies sont le rêve de tout amateur de chocolat."
+>>>>>>> 683cb9ecc9f3a51bb8e6751e2ff213cb60261aad
       },
       {
         id: 2,
@@ -317,7 +623,11 @@
       },
       {
         id: 3,
+<<<<<<< HEAD
         line: "pages/JM/recette1.html",
+=======
+        line: "pages/JM/gateauPralineChocolatNoisette.html",
+>>>>>>> 683cb9ecc9f3a51bb8e6751e2ff213cb60261aad
         category: "gateau",
         title: "Gâteau praliné chocolat-noisette",
         image: "images/JM-recette/gateauPralineChocolatNoisette.jpg",
@@ -341,12 +651,17 @@
       },
       {
         id: 5,
+<<<<<<< HEAD
         line: "pages/Sam/recettes3.html",
+=======
+        line: "pages/Sam/recette1.html",
+>>>>>>> 683cb9ecc9f3a51bb8e6751e2ff213cb60261aad
         category: "mousse",
         title: "Mousse au chocolat",
         image: "images/mousseAuChocolat.jpg",
         time: "15 min",
         level: "Facile",
+<<<<<<< HEAD
         servings: "4 pers",
         ingredients: ["100g de chocolat noir", "3 oeufs", "1 sachet de sucre vanillé", "20g de beurre", "20g de sucre", "1 pincée de sel"],
         desc: "1. Séparer les blancs des jaunes d'oeufs.\n2. Faire ramollir le chocolat dans une casserole au bain-marie.\n3. Hors du feu, incorporer les jaunes et le sucre.\n4. Battre les blancs en neige ferme.\n5. Ajouter délicatement les blancs au mélange.\n6. Verser dans une terrine ou des verrines.\n7. Mettre au frais 2h minimum.\n8. Décorer de cacao ou de chocolat râpé.\n9. Déguster."
@@ -366,6 +681,39 @@
       {
         id: 7,
         line: "recetteM1.html",
+=======
+        servings: "6 pers",
+        ingredients: ["100 g de sucre en poudre\n500 g de mascarpone\nEnviron 30 biscuits à la cuillère\n100 g de chocolat noir de qualité (70%min)\n300 ml de café\nPour saupoudrer du cacao en poudre (petit gourmand..)"],
+        desc: "Ce Tiramisu au Chocolat est un pur délice de l'Italie. Il marie la douceur onctueuse d'une crème Mascarpone aérée et le moelleux de biscuits imbibés de café intense. Le tout est généreusement parsemé de copeaux de chocolat noir croquants et nappé d'une sauce chocolat fondante. Un dessert riche, crémeux et intensément cacaoté pour une satisfaction immédiate."
+      },
+      {
+        id: 6,
+        line: "pages/Sam/recette2.html",
+        category: "gateau",
+        title: "Cannoli aux chocolat",
+        image: "images/cannoli_chocolat.png",
+        time: "60 min",
+        level: "Moyen",
+        servings: "8-10 pers",
+        ingredients: [
+          "Pour les coques: 200g de farine tout usage",
+          "50g de sucre en poudre",
+          "50g de beurre fondu",
+          "1 œuf",
+          "1 pincée de sel",
+          "Huile de friture",
+          "Pour la garniture: 500g de ricotta fraîche",
+          "100g de sucre glace",
+          "100g de pépites de chocolat noir",
+          "Zeste d'une orange",
+          "1 c. à café d'extrait de vanille"
+        ],
+        desc: "Les cannoli sont une spécialité sicilienne emblématique : des coques de pâte fine, frites pour devenir parfaitement croustillantes, puis garnies d'une crème de ricotta douce et veloutée. Les pépites de chocolat apportent une touche gourmande, tandis que le zeste d'orange parfume le tout d'une fraîcheur méditerranéenne. Une alliance simple, authentique et irrésistible."
+      },
+      {
+        id: 7,
+        line: "pages/Mykyta/recetteM1.html",
+>>>>>>> 683cb9ecc9f3a51bb8e6751e2ff213cb60261aad
         category: "mousse",
         title: "Mousse au Chocolat au Lait Aérien",
         image: "images/Mousse au Chocolat au Lait Aérien.jpg",
@@ -373,11 +721,19 @@
         level: "Facile",
         servings: "4 pers",
         ingredients: ["200g Chocolat au lait", "4 Œufs (blancs)", "3 Œufs (jaunes)", "40g Sucre", "30g Beurre", "200ml Crème liquide", "Pincée de sel"],
+<<<<<<< HEAD
         desc: "1. Faire fondre le chocolat avec le beurre au bain-marie. Laisser tiédir.\n2. Séparer les blancs d'œufs des jaunes.\n3. Ajouter les jaunes d'œufs un par un au chocolat fondu.\n4. Monter les blancs en neige ferme avec le sel et le sucre.\n5. Incorporer délicatement les blancs en neige au mélange chocolat-jaunes.\n6. Monter la crème liquide en chantilly et l'incorporer délicatement.\n7. Répartir dans des verrines et réfrigérer pendant au moins 3 heures."
       },
       {
         id: 8,
         line: "recetteM2.html",
+=======
+        desc: "Une texture légère et mousseuse qui fond en bouche, avec une douceur équilibrée par la richesse du chocolat au lait. Parfait pour une fin de repas gourmande ou une pause sucrée."
+      },
+      {
+        id: 8,
+        line: "pages/Mykyta/recetteM2.html",
+>>>>>>> 683cb9ecc9f3a51bb8e6751e2ff213cb60261aad
         category: "gateau",
         title: "Fondant Cœur Coulant",
         image: "images/Fondant Coeur Coulant.webp",
@@ -385,7 +741,11 @@
         level: "Moyen",
         servings: "4 pers",
         ingredients: ["100 g de chocolat noir (70%)", "100 g de beurre doux", "3 œufs moyens", "80 g de sucre en poudre", "50 g de farine T55"],
+<<<<<<< HEAD
         desc: "1. Préchauffer le four à 200°C. Beurrer et chemiser 4 ramequins.\n2. Faire fondre chocolat + beurre. Laisser tiédir.\n3. Fouetter œufs + sucre jusqu'à blanchiment.\n4. Verser le chocolat tiède et mélanger.\n5. Ajouter la farine, mélanger délicatement.\n6. Répartir dans les ramequins. Cuire 9–11 min.\n7. Repos 2 min, démouler et servir avec glace vanille.\nAstuce : congeler 30 min avant cuisson = cœur ultra coulant!"
+=======
+        desc: "Le dessert qui fait fondre tout le monde. Un extérieur croustillant, un cœur ultra coulant… prêt en 25 minutes seulement."
+>>>>>>> 683cb9ecc9f3a51bb8e6751e2ff213cb60261aad
       }
     ];
 
@@ -475,6 +835,13 @@
 
     renderRecipes();
   </script>
+<<<<<<< HEAD
 </body>
 
+=======
+
+  <script src="js/script.js"></script>
+</body>
+
+>>>>>>> 683cb9ecc9f3a51bb8e6751e2ff213cb60261aad
 </html>
