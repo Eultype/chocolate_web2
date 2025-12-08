@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../frontend/view/recettes/Sola/style/style.css" />
+    <link rel="icon" href="../../frontend/assets/images/tablette_chocolat1.ico" type="image/png" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Recettes : Mousse au chocolat</title>
+  </head>
+  <body>
+    <main
+      class="bg-[#f7efe6] text-[#4d2c16] min-h-screen w-screen md:grid md:grid-cols-2 gap-10 place-items-center p-8 md:px-20"
+    >
+      <!-- NAVBAR FLOTANTE -->
+      <?php include "../../frontend/view/components/_menu.html.php"; ?>
+      <div class="w-full h-full rounded-lg">
+        <img
+          class="object-cover rounded-lg"
+          src="../../frontend/assets/images/<?= htmlspecialchars($recette->getRecipeImg()) ?>"
+          alt="image de mousse au chocolat"
+        />
+      </div>
+      <section class="grid md:grid-rows-2">
+        <div class="[&_span]:font-black col-start-2 row-start-1 pb-24">
+          <p class="text-md py-8">· Mousse au chocolat ·</p>
+          <h1 class="text-5xl pb-8 underline underline-offset-3">
+            <span>Minimaliste</span>, simple, <br />
+            douce,<span> efficace</span>.
+          </h1>
+          <p>
+            Une mousse au chocolat, c’est un peu comme un bon design :
+            <span>minimaliste, mais chaque détail compte</span>. Trois
+            ingrédients, quelques gestes précis, et la magie opère. Cette
+            recette, c’est celle que je fais quand j’ai besoin de plonger dans
+            quelque chose de plus… <span>sensoriel</span>.
+          </p>
+        </div>
+        <div
+          class="border-2 border-[#4d2c16] rounded-md p-8 text-md col-start-2 row-start-2 h-fit w-full [&_span]:font-black [&_p]:mb-2"
+        >
+          <h2 class="py-5">Ingrédients (pour 4 personnes) :</h2>
+          <p>- 200 g de chocolat noir (70 % minimum, c’est lui la star)</p>
+          <p>- 6 œufs frais (jaunes et blancs séparés)</p>
+          <p>- 1 pincée de sel</p>
+          <p>
+            - (optionnel) un filet de café noir ou une pointe de vanille pour la
+            profondeur
+          </p>
+        </div>
+      </section>
+      <!-- COMMENT FORM -->
+      <section
+        class="w-full col-span-2 mt-10 border-1 border-[#4d2c16] p-8 [&_label]:block [&_label]:font-semibold [&_label]:mb-2 [&_input]:bg-white [&_input]:rounded-lg [&_input]:p-4 [&_input]:w-full [&_input]:mb-4 [&_button]:bg-[#4d2c16] [&_button]:text-white [&_button]:px-4 [&_button]:py-2 [&_button]:rounded-md [&_button]:hover:bg-[#3a2210]"
+      >
+        <form id="recipeComment" action="" class="">
+          <label for="name">Nom :</label>
+          <input class="" type="text" placeholder="Jane Doe" /> <br />
+          <label for="topic">Sujet :</label>
+          <input type="text" placeholder="Mousse au chocolat" /> <br />
+          <label for="comment">Commentaire :</label>
+          <input type="textarea" placeholder="Ecrire un message" /> <br />
+          <button class="mt-6" type="submit">Envoyer</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
